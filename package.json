@@ -1,11 +1,23 @@
 {
   "name": "vue-golu",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "vue ui 框架练习",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qinzehua/vue-gulu.git"
+  },
+  "keywords": [
+    "vue",
+    "ui"
+  ],
+  "author": "qinzehua",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qinzehua/vue-gulu/issues"
+  },
+  "homepage": "https://github.com/qinzehua/vue-gulu#readme"
 }
