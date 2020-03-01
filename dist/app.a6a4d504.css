@@ -16,8 +16,6 @@
   .g-button:focus {
     outline: none; }
   .g-button .icon {
-    width: 1em;
-    height: 1em;
     order: 1;
     margin-right: 0.3em; }
   .g-button .content {
@@ -28,4 +26,8 @@
     margin-right: 0; }
   .g-button.icon-right .content {
     order: 1; }
+
+.g-icon {
+  width: 1em;
+  height: 1em; }
 
