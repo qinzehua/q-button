@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import Icon from "./icon.vue";
+
 export default {
   props: {
     icon: {
@@ -29,6 +31,9 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  components: {
+    "g-icon": Icon
   }
 };
 </script>
