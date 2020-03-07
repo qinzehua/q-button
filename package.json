@@ -1,7 +1,7 @@
 {
-  "name": "vue-golu",
-  "version": "0.0.1",
-  "description": "vue ui 框架练习",
+  "name": "q-button",
+  "version": "0.0.5",
+  "description": "vue button 轮子",
   "main": "index.js",
   "scripts": {
     "dev-test": "parcel watch test/* --no-cache & karma start",

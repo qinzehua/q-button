@@ -3,6 +3,9 @@
   "files.exclude": {
     "**/.gitignore": false
   },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "[javascript]": {
