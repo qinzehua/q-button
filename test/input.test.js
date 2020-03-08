@@ -66,9 +66,14 @@ describe("Button", () => {
         const callback = sinon.fake();
         vm.on(eventName, callback);
         const event = new Event(eventName);
+        Object.defineProperty(event, "target", {
+          value: { value: "hi" },
+          enumerable: true
+        });
+
         let inputElement = vm.$el.querySelector("input");
         inputElement.dispacthEvent(event);
-        expect(callback).to.have.been.calledWith(event);
+        expect(callback).to.have.been.calledWith(event.target.value);
       });
     });
   });
