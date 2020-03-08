@@ -45,7 +45,7 @@
       <div class="box">
         <g-input value="张三" :readonly="true"></g-input>
         <g-input value="李四" :disabled="true"></g-input>
-        <g-input value="王五"></g-input>
+        <g-input value="王五" @change="inputChange"></g-input>
       </div>
       <div class="box">
         <g-input value="孙" errormsg="名字长度不能少于2"></g-input>

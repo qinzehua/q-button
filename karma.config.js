@@ -1,7 +1,7 @@
 module.exports = function(config) {
   config.set({
     basePath: "",
-    frameworks: ["mocha", "sinon-chai"],
+    frameworks: ["mocha", "sinon-chai", "sinon"],
     client: {
       chai: {
         includeStack: true
