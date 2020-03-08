@@ -1,7 +1,7 @@
 {
-  "name": "q-button",
-  "version": "0.0.5",
-  "description": "vue button 轮子",
+  "name": "q-gulu",
+  "version": "0.0.6",
+  "description": "vue 组件",
   "main": "index.js",
   "scripts": {
     "dev-test": "parcel watch test/* --no-cache & karma start",
