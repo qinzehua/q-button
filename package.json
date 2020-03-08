@@ -1,9 +1,10 @@
 {
   "name": "q-gulu",
-  "version": "0.0.6",
+  "version": "0.0.1",
   "description": "vue 组件",
   "main": "index.js",
   "scripts": {
+    "start": "parcel ./index.html --no-cache",
     "dev-test": "parcel watch test/* --no-cache & karma start",
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run"
   },
@@ -38,7 +39,7 @@
     "mocha": "^5.2.0",
     "node-sass": "^4.13.1",
     "parcel-bundler": "^1.9.2",
-    "sinon": "^6.0.1",
+    "sinon": "^4.0.1",
     "sinon-chai": "^3.2.0",
     "vue-template-compiler": "2.5.16"
   },

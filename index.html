@@ -34,30 +34,24 @@
         vertical-align: middle;
       }
     </style>
-    <style></style>
+    <style>
+      .box {
+        margin: 20px;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
-      <g-button
-        icon="settings"
-        icon-position="left"
-        :loading="loading1"
-        @click="loading1 = !loading1"
-        >设置</g-button
-      >
-      <g-button icon="settings">设置</g-button>
-      <g-button icon="settings" icon-position="right" :loading="true"
-        >设置</g-button
-      >
-      <g-icon name="left" class="my-icon"></g-icon>
-
-      <g-button-group>
-        <g-button icon="left">上一页</g-button>
-        <g-button icon="left">中间</g-button>
-        <g-button icon="right" icon-position="right">下一页</g-button>
-      </g-button-group>
+      <div class="box">
+        <g-input value="张三" :readonly="true"></g-input>
+        <g-input value="李四" :disabled="true"></g-input>
+        <g-input value="王五"></g-input>
+      </div>
+      <div class="box">
+        <g-input value="孙" errormsg="名字长度不能少于2"></g-input>
+      </div>
     </div>
-    <div id="test"></div>
   </body>
   <script src="src/app.js"></script>
+  <script src="https://at.alicdn.com/t/font_860960_ez9q0gj9nvh.js"></script>
 </html>
