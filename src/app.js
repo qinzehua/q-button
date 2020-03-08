@@ -10,10 +10,11 @@ Vue.component("g-input", Input);
 new Vue({
   el: "#app",
   data: {
-    loading1: false
+    loading1: false,
+    message: "孙"
   },
   methods: {
-    inputChange(val)  {
+    inputChange(val) {
       console.log(val);
     }
   }

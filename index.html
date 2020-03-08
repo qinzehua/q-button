@@ -48,7 +48,8 @@
         <g-input value="王五" @change="inputChange"></g-input>
       </div>
       <div class="box">
-        <g-input value="孙" errormsg="名字长度不能少于2"></g-input>
+        <g-input v-model="message" errormsg="名字长度不能少于2"></g-input>
+        <p>{{message}}</p>
       </div>
     </div>
   </body>
