@@ -42,6 +42,12 @@
   </head>
   <body>
     <div id="app">
+      <g-row>
+        <g-col :span="5">1</g-col>
+        <g-col :span="16">2</g-col>
+        <g-col :span="3">3</g-col>
+      </g-row>
+      <hr />
       <div class="box">
         <g-input value="张三" :readonly="true"></g-input>
         <g-input value="李四" :disabled="true"></g-input>
