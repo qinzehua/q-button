@@ -1,5 +1,15 @@
 <template>
-  <div class="col" :class="[`col-${span}`]">
+  <div
+    class="col"
+    :class="{
+      [`col-${span}`]: span,
+      [`offset-${offset}`]: offset
+    }"
+    :style="{
+      [`paddingLeft`]: gutter / 2 + 'px',
+      [`paddingRight`]: gutter / 2 + 'px'
+    }"
+  >
     <slot></slot>
   </div>
 </template>
@@ -9,7 +19,15 @@ export default {
   props: {
     span: {
       type: [Number, String]
+    },
+    offset: {
+      type: [Number, String]
     }
+  },
+  data() {
+    return {
+      gutter: 0
+    };
   }
 };
 </script>
@@ -17,13 +35,18 @@ export default {
 <style lang="scss">
 .col {
   height: 100px;
-  background: blue;
-  border: 1px solid red;
   box-sizing: border-box;
   $class-prefix: col-;
   @for $n from 1 through 20 {
     &.#{$class-prefix}#{$n} {
       width: ($n / 24) * 100%;
+    }
+  }
+
+  $class-prefix: offset-;
+  @for $n from 1 through 20 {
+    &.#{$class-prefix}#{$n} {
+      margin-left: ($n / 24) * 100%;
     }
   }
 }

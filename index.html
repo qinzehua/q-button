@@ -38,14 +38,26 @@
       .box {
         margin: 20px;
       }
+      .g-content {
+        background-color: burlywood;
+      }
     </style>
   </head>
   <body>
     <div id="app">
+      <g-row :gutter="20">
+        <g-col :span="5"><p class="g-content">1</p></g-col>
+        <g-col :span="16"><p class="g-content">2</p></g-col>
+        <g-col :span="3"><p class="g-content">3</p></g-col>
+      </g-row>
       <g-row>
         <g-col :span="5">1</g-col>
-        <g-col :span="16">2</g-col>
-        <g-col :span="3">3</g-col>
+        <g-col :span="16" offset="3">2</g-col>
+      </g-row>
+      <g-row>
+        <g-col :span="6">1</g-col>
+        <g-col :span="10" offset="3">2</g-col>
+        <g-col :span="5">2</g-col>
       </g-row>
       <hr />
       <div class="box">
