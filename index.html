@@ -41,25 +41,15 @@
       .g-content {
         background-color: burlywood;
       }
+      .demobox {
+        height: 50px;
+        background: gray;
+        border: 1px solid red;
+      }
     </style>
   </head>
   <body>
     <div id="app">
-      <g-row :gutter="20">
-        <g-col :span="5"><p class="g-content">1</p></g-col>
-        <g-col :span="16"><p class="g-content">2</p></g-col>
-        <g-col :span="3"><p class="g-content">3</p></g-col>
-      </g-row>
-      <g-row>
-        <g-col :span="5">1</g-col>
-        <g-col :span="16" offset="3">2</g-col>
-      </g-row>
-      <g-row>
-        <g-col :span="6">1</g-col>
-        <g-col :span="10" offset="3">2</g-col>
-        <g-col :span="5">2</g-col>
-      </g-row>
-      <hr />
       <div class="box">
         <g-input value="张三" :readonly="true"></g-input>
         <g-input value="李四" :disabled="true"></g-input>
@@ -69,6 +59,33 @@
         <g-input v-model="message" errormsg="名字长度不能少于2"></g-input>
         <p>{{message}}</p>
       </div>
+
+      <g-row class="topbar">
+        <g-col class="demobox" span="9">
+          <g-row justAlign="left">
+            <g-col style="flex: 0 0 50px;">1</g-col>
+            <g-col>2</g-col>
+            <g-col>3</g-col>
+            <g-col>4</g-col>
+          </g-row>
+        </g-col>
+        <g-col class="demobox" span="15">
+          <g-row justAlign="right">
+            <g-col>1</g-col>
+            <g-col>2</g-col>
+            <g-col>3</g-col>
+            <g-col>4</g-col>
+            <g-col>5</g-col>
+            <g-col>6</g-col>
+            <g-col>7</g-col>
+          </g-row>
+        </g-col>
+      </g-row>
+      <g-row class="logo-and-search-and-qrcode">
+        <g-col class="demobox" span="4">1</g-col>
+        <g-col class="demobox" span="14">2</g-col>
+        <g-col class="demobox" span="6">3</g-col>
+      </g-row>
     </div>
   </body>
   <script src="src/app.js"></script>
