@@ -1,14 +1,14 @@
 module.exports = function(config) {
   config.set({
     basePath: "",
-    frameworks: ["mocha", "sinon-chai"],
+    frameworks: ["mocha", "chai", "sinon-chai"],
     client: {
       chai: {
         includeStack: true
       }
     },
 
-    files: ["dist/**/*.test.js", "dist/**/*.test.css"],
+    files: ["dist/**/*.test.js"],
     exclude: [],
     preprocessors: {},
     reporters: ["progress"],

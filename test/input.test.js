@@ -5,22 +5,23 @@ import Input from "../src/input";
 Vue.config.productionTip = false;
 Vue.config.devtools = false;
 
-describe("Button", () => {
+describe("Input", () => {
   it("存在.", () => {
     expect(Input).to.exist;
   });
 
   describe("props", () => {
-    let Constructor, vm;
+    let Constructor;
+    let vm;
     beforeEach(() => {
       Constructor = Vue.extend(Input);
     });
     afterEach(() => {
-      vm.$destory();
+      vm.$destroy();
     });
 
     it("接收 value", () => {
-      const vm = new Constructor({
+      vm = new Constructor({
         propsData: {
           value: "1234"
         }
@@ -30,7 +31,7 @@ describe("Button", () => {
     });
 
     it("接收 disabled", () => {
-      const vm = new Constructor({
+      vm = new Constructor({
         propsData: {
           disabled: true
         }
@@ -40,7 +41,7 @@ describe("Button", () => {
     });
 
     it("接收 errormsg", () => {
-      const vm = new Constructor({
+      vm = new Constructor({
         propsData: {
           errormsg: "1222xxx"
         }
@@ -57,14 +58,14 @@ describe("Button", () => {
       Constructor = Vue.extend(Input);
     });
     afterEach(() => {
-      vm.$destory();
+      vm.$destroy();
     });
 
     it("支持 change/input/focus/blur 事件", () => {
-      ["change", "input", "focus", "blur"].forEach(eventName => {
-        const vm = new Constructor({}).$mount();
+      vm = new Constructor({}).$mount();
+      [("change", "input", "focus", "blur")].forEach(eventName => {
         const callback = sinon.fake();
-        vm.on(eventName, callback);
+        vm.$on(eventName, callback);
         const event = new Event(eventName);
         Object.defineProperty(event, "target", {
           value: { value: "hi" },
@@ -72,7 +73,7 @@ describe("Button", () => {
         });
 
         let inputElement = vm.$el.querySelector("input");
-        inputElement.dispacthEvent(event);
+        inputElement.dispatchEvent(event);
         expect(callback).to.have.been.calledWith(event.target.value);
       });
     });

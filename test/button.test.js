@@ -1,4 +1,3 @@
-const expect = chai.expect;
 import Vue from "vue";
 import Button from "../src/button";
 
@@ -45,8 +44,8 @@ describe("Button", () => {
         icon: "settings"
       }
     }).$mount(div);
-    const icon = vm.$el.querySelector("svg");
-    expect(getComputedStyle(icon).order).to.eq("1");
+    const buttonClassName = vm.$el.className;
+    expect(buttonClassName).to.contains("icon-left");
     vm.$el.remove();
     vm.$destroy();
   });
@@ -61,8 +60,8 @@ describe("Button", () => {
         iconPosition: "right"
       }
     }).$mount(div);
-    const icon = vm.$el.querySelector("svg");
-    expect(getComputedStyle(icon).order).to.eq("2");
+    const buttonClassName = vm.$el.className;
+    expect(buttonClassName).to.contains("icon-right");
     vm.$el.remove();
     vm.$destroy();
   });
