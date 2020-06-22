@@ -4,11 +4,11 @@ module.exports = function(config) {
     frameworks: ["mocha", "chai", "sinon-chai"],
     client: {
       chai: {
-        includeStack: true
-      }
+        includeStack: true,
+      },
     },
 
-    files: ["dist/**/*.test.js"],
+    files: ["dist/test/**/*.test.js"],
     exclude: [],
     preprocessors: {},
     reporters: ["progress"],
@@ -18,6 +18,6 @@ module.exports = function(config) {
     autoWatch: true,
     browsers: ["ChromeHeadless"],
     singleRun: false,
-    concurrency: Infinity
+    concurrency: Infinity,
   });
 };
