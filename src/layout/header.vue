@@ -1,16 +1,16 @@
 <template>
-  <div class="slider">
+  <div class="header">
     <slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'gSlider',
+  name: 'gHeader',
 };
 </script>
 
 <style lang="scss">
-.slider {
+.header {
 }
 </style>
