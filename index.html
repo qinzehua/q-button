@@ -30,8 +30,20 @@
         display: inline-block;
         vertical-align: middle;
       }
+      .box {
+        border: 1px solid;
+        padding: 15px 0;
+        margin: 10px 0;
+      }
       .left {
         background-color: antiquewhite;
+      }
+
+      .demo {
+        min-height: 100px;
+      }
+      .slider {
+        background-color: brown;
       }
     </style>
     <style>
@@ -71,8 +83,26 @@
           >
         </g-row>
       </div>
+
+      <div class="box">
+        <g-layout>
+          <g-slider>slider</g-slider>
+          <g-layout>
+            <g-header class="demo">header</g-header>
+            <g-layout>
+              <g-slider class="demo">slider</g-slider>
+              <g-content class="demo">content</g-content>
+            </g-layout>
+            <g-layout>
+              <g-content class="demo">content</g-content>
+              <g-slider class="demo">slider</g-slider>
+            </g-layout>
+            <g-footer class="demo">footer</g-footer>
+          </g-layout>
+        </g-layout>
+      </div>
     </div>
   </body>
-  <script src="src/app.js"></script>
+  <script src="./app.js"></script>
   <script src="https://at.alicdn.com/t/font_860960_ez9q0gj9nvh.js"></script>
 </html>
