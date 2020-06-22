@@ -30,6 +30,9 @@
         display: inline-block;
         vertical-align: middle;
       }
+      .left {
+        background-color: antiquewhite;
+      }
     </style>
     <style>
       .box {
@@ -54,15 +57,20 @@
         <g-input v-model="message" errormsg="名字长度不能少于2"></g-input>
         <p>{{message}}</p>
       </div>
-
-      <g-row class="topbar">
-        <g-col span="22" :ipad="{span:12}" :narrowpc="{span:6}">
-          <div class="demo-box">1</div></g-col
-        >
-        <g-col span="22" :ipad="{span:12}" :narrowpc="{span:6}">
-          <div class="demo-box">1</div></g-col
-        >
-      </g-row>
+      <div class="box">
+        <g-row class="topbar" gutter="15">
+          <g-col span="20" :ipad="{span:12}" :narrowpc="{span:6}">
+            <g-row class="left" gutter="15">
+              <g-col span="8"> <div class="demo-box">1</div></g-col>
+              <g-col span="8"> <div class="demo-box">2</div></g-col>
+              <g-col span="8"> <div class="demo-box">3</div></g-col>
+            </g-row>
+          </g-col>
+          <g-col span="2" :ipad="{span:5}" :narrowpc="{span:6}">
+            <div class="demo-box">1</div></g-col
+          >
+        </g-row>
+      </div>
     </div>
   </body>
   <script src="src/app.js"></script>

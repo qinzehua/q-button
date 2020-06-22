@@ -5,34 +5,34 @@
 </template>
 
 <script>
-let validator = value => {
+let validator = (value) => {
   var keys = Object.keys(value);
-  return keys.every(key => ["span", "offset"].includes(key));
+  return keys.every((key) => ["span", "offset"].includes(key));
 };
 export default {
   props: {
     span: {
-      type: [Number, String]
+      type: [Number, String],
     },
     offset: {
-      type: [Number, String]
+      type: [Number, String],
     },
     phone: {
       type: Object,
-      validator
+      validator,
     },
     ipad: {
       type: Object,
-      validator
+      validator,
     },
     narrowpc: {
       type: Object,
-      validator
-    }
+      validator,
+    },
   },
   data() {
     return {
-      gutter: 0
+      gutter: 0,
     };
   },
   methods: {
@@ -49,13 +49,13 @@ export default {
         classObj[`col-${str}${offset}`] = true;
       }
       return classObj;
-    }
+    },
   },
   computed: {
     colStyle() {
       return {
         paddingLeft: this.gutter / 2 + "px",
-        paddingRight: this.gutter / 2 + "px"
+        paddingRight: this.gutter / 2 + "px",
       };
     },
     colClass() {
@@ -64,10 +64,10 @@ export default {
         ...this.createdClasses({ span, offset }, ""),
         ...this.createdClasses(phone, "phone-"),
         ...this.createdClasses(ipad, "ipad-"),
-        ...this.createdClasses(narrowpc, "narrowpc-")
+        ...this.createdClasses(narrowpc, "narrowpc-"),
       };
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -106,14 +106,14 @@ export default {
   }
 
   @media (min-width: 1000px) {
-    $class-prefix: col-narrow-pc-;
+    $class-prefix: col-narrowpc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
         width: ($n / 24) * 100%;
       }
     }
 
-    $class-prefix: offset-narrow-pc-;
+    $class-prefix: offset-narrowpc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
         margin-left: ($n / 24) * 100%;
