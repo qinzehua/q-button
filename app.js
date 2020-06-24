@@ -32,15 +32,15 @@ new Vue({
     message: "孙",
   },
   mounted() {
-    this.$toast("<strong>这是toast</strong>", {
+    this.$toast("已从之已从", {
+      position: "middle",
       closeBtn: {
         text: "关闭",
         callback() {
           console.log("用户说他知道了");
         },
       },
-      enabledHtml: true,
-      autoCloseDelay: 50,
+      autoCloseDelay: 5,
     });
   },
   methods: {

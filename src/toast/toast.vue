@@ -1,5 +1,5 @@
 <template>
-  <div class="toast" ref="wrapper">
+  <div class="toast" ref="wrapper" :class="toastClass">
     <div class="message">
       <slot v-if="!enabledHtml"></slot>
       <div v-if="enabledHtml" v-html="$slots.default[0]"></div>
@@ -33,10 +33,22 @@ export default {
       type: Boolean,
       default: false,
     },
+    position: {
+      type: String,
+      default: "top",
+      validator(v) {
+        return ["top", "bottom", "middle"].indexOf(v) > -1;
+      },
+    },
   },
   mounted() {
     this.executeAutoClose();
     this.updateLineStyle();
+  },
+  computed: {
+    toastClass() {
+      return `position-${this.position}`;
+    },
   },
   methods: {
     executeAutoClose() {
@@ -73,7 +85,6 @@ $toast-bg: rgba(0, 0, 0, 0.75);
 .toast {
   border: 1px solid;
   position: fixed;
-  top: 0;
   left: 50%;
   transform: translateX(-50%);
   font-size: $font-size;
@@ -85,14 +96,24 @@ $toast-bg: rgba(0, 0, 0, 0.75);
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
   border-radius: 4px;
   color: white;
-  padding-left: 8px;
+  padding: 0 8px;
+  &.position-top {
+    top: 0;
+  }
+  &.position-bottom {
+    bottom: 0;
+  }
+  &.position-middle {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 .message {
   padding: 8px 0;
 }
 .close {
   padding-left: 16px;
-  flex: 0 0 50px;
+  flex-shrink: 0;
 }
 .line {
   border-left: 1px solid #666;
