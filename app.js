@@ -31,22 +31,22 @@ new Vue({
     loading1: false,
     message: "孙",
   },
-  mounted() {
-    this.$toast("已从之已从", {
-      position: "middle",
-      closeBtn: {
-        text: "关闭",
-        callback() {
-          console.log("用户说他知道了");
-        },
-      },
-      autoCloseDelay: 5,
-    });
-  },
+  mounted() {},
   methods: {
     inputChange(val) {
       console.log(val);
     },
-    showToast() {},
+    showToast() {
+      this.$toast("已从之已从", {
+        position: "middle",
+        closeBtn: {
+          text: "关闭",
+          callback() {
+            console.log("用户说他知道了");
+          },
+        },
+        autoCloseDelay: 5,
+      });
+    },
   },
 });
