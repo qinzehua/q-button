@@ -45,7 +45,7 @@ new Vue({
             console.log("用户说他知道了");
           },
         },
-        autoCloseDelay: 5,
+        autoClose: 5,
       });
     },
   },

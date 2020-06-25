@@ -21,12 +21,11 @@ export default {
   },
   props: {
     autoClose: {
-      type: Boolean,
-      default: true,
-    },
-    autoCloseDelay: {
-      type: Number,
+      type: [Number, Boolean],
       default: 5,
+      validator(value) {
+        return typeof value === "number" || value === false;
+      },
     },
     closeBtn: {
       type: Object,
@@ -57,7 +56,7 @@ export default {
       if (this.autoClose) {
         setTimeout(() => {
           this.close();
-        }, this.autoCloseDelay * 1000);
+        }, this.autoClose * 1000);
       }
     },
     updateLineStyle() {
@@ -81,7 +80,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 $font-size: 14px;
 $toast-height: 40px;
 $toast-bg: rgba(0, 0, 0, 0.75);
