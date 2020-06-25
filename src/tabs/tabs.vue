@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import Vue from "vue";
 export default {
   name: "Tabs",
   props: {
@@ -20,8 +21,20 @@ export default {
       },
     },
   },
+  data() {
+    return {
+      eventBus: new Vue(),
+    };
+  },
+  provide() {
+    return {
+      eventBus: this.eventBus,
+    };
+  },
   created() {
-    this.$emit("update:selected", "woman");
+    this.eventBus.$on("update:selected", (value) => {
+      console.log(value);
+    });
   },
 };
 </script>

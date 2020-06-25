@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Plugin from "./src/toast/plugin";
 import Button from "./src/button.vue";
+import Icon from "./src/icon";
 import ButtonGroup from "./src/button-group.vue";
 import Input from "./src/input.vue";
 import Row from "./src/row.vue";
@@ -17,6 +18,7 @@ import TabsItme from "./src/tabs/tabs-item";
 import TabsBody from "./src/tabs/tabs-body";
 import TabsPane from "./src/tabs/tabs-pane";
 
+Vue.component("g-icon", Icon);
 Vue.component("g-button-group", ButtonGroup);
 Vue.component("g-button", Button);
 Vue.component("g-input", Input);

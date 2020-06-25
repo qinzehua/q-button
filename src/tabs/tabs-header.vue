@@ -8,6 +8,8 @@
 <script>
 export default {
   name: "TabsHeader",
+  inject: ["eventBus"],
+  created() {},
 };
 </script>
 
