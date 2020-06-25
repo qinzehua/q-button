@@ -13,7 +13,11 @@ export default {
   name: "TabsHeader",
   inject: ["eventBus"],
   created() {
-    this.eventBus.$on("update:selected", () => {});
+    this.eventBus.$on("update:selected", (name, vm) => {
+      const { width, height, top, left } = vm.$el.getBoundingClientRect();
+      this.$refs.line.style.width = `${width}px`;
+      this.$refs.line.style.left = `${left - 22}px`;
+    });
   },
 };
 </script>
@@ -33,8 +37,8 @@ $blue: blue;
   & .line {
     position: absolute;
     bottom: 0;
-    border-bottom: 1px solid $blue;
-    width: 100px;
+    border-bottom: 2px solid $blue;
+    transition: all 0.5s;
   }
 }
 </style>
