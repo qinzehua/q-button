@@ -17,23 +17,23 @@ import Icon from "./icon.vue";
 export default {
   props: {
     icon: {
-      type: String
+      type: String,
     },
     iconPosition: {
       type: String,
       default: "left",
       validator(vale) {
         return vale === "left" || vale === "right";
-      }
+      },
     },
     loading: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   components: {
-    "g-icon": Icon
-  }
+    "g-icon": Icon,
+  },
 };
 </script>
 

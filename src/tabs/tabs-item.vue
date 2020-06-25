@@ -1,6 +1,6 @@
 <template>
-  <div class="tabs-item" @click="switchItem">
-      <slot>
+  <div class="tabs-item" @click="switchItem" :class="classes">
+    <slot></slot>
   </div>
 </template>
 
@@ -11,31 +11,52 @@ export default {
   props: {
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     selected: {
       type: String | Number,
-      require: true
+      require: true,
     },
     name: {
       type: String,
-      require: true
-    }
+      require: true,
+    },
+  },
+  computed: {
+    classes() {
+      return {
+        active: this.active,
+      };
+    },
+  },
+  data() {
+    return {
+      active: false,
+    };
   },
   mounted() {
-    this.eventBus.$on("update:selected", (value) => {
-       
+    this.eventBus.$on("update:selected", (name) => {
+      if (name === this.name) {
+        this.active = true;
+      } else {
+        this.active = false;
+      }
     });
   },
-  methods:{ 
+  methods: {
     switchItem() {
-      this.eventBus.$emit('update:selected', this.name)
-    }
-  }
+      this.eventBus.$emit("update:selected", this.name);
+    },
+  },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .tabs-item {
+  flex-shrink: 0;
+  padding: 0 2em;
+  &.active {
+    background: red;
+  }
 }
 </style>
