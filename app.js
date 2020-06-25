@@ -1,5 +1,5 @@
 import Vue from "vue";
-import Plugin from "./src/plugin";
+import Plugin from "./src/toast/plugin";
 import Button from "./src/button.vue";
 import ButtonGroup from "./src/button-group.vue";
 import Input from "./src/input.vue";
@@ -38,7 +38,7 @@ new Vue({
     },
     showToast() {
       this.$toast("已从之已从", {
-        position: "middle",
+        position: "bottom",
         closeBtn: {
           text: "关闭",
           callback() {

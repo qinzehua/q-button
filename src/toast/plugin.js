@@ -1,4 +1,4 @@
-import Toast from "./toast/toast";
+import Toast from "./toast";
 let currentToast;
 
 export default {
