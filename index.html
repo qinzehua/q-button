@@ -83,8 +83,8 @@
           >
         </g-row>
       </div>
-
       <div class="box">
+        <h1>Layout</h1>
         <g-layout>
           <g-slider>slider</g-slider>
           <g-layout>
@@ -102,7 +102,28 @@
         </g-layout>
       </div>
       <div class="box">
+        <h1>Toast</h1>
         <button @click="showToast">这是toast</button>
+      </div>
+      <div class="box">
+        <h1>Tabs</h1>
+        <g-tabs :selected.async="selectTab" direction="vertical">
+          <g-tabs-header>
+            <template slot="action">
+              <button>设置</button>
+            </template>
+            <g-tabs-item name="woman" disabled>
+              <g-icon name="setting"></g-icon>美女
+            </g-tabs-item>
+            <g-tabs-item name="finance">财经</g-tabs-item>
+            <g-tabs-item name="sport">体育</g-tabs-item>
+          </g-tabs-header>
+          <g-tabs-body>
+            <g-tabs-pane name="woman">美女111</g-tabs-pane>
+            <g-tabs-pane name="finance">财经111</g-tabs-pane>
+            <g-tabs-pane name="sport">体育111</g-tabs-pane>
+          </g-tabs-body>
+        </g-tabs-item>
       </div>
     </div>
   </body>
