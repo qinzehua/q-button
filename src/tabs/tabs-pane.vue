@@ -27,7 +27,7 @@ export default {
     };
   },
   mounted() {
-    this.eventBus.$on("update:selected", (name) => {
+    this.eventBus.$on("update:selected", (name, vm) => {
       if (name === this.name) {
         this.active = true;
       } else {
