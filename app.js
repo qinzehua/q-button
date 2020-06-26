@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Plugin from "./src/toast/plugin";
 import Button from "./src/button.vue";
+import Icon from "./src/icon";
 import ButtonGroup from "./src/button-group.vue";
 import Input from "./src/input.vue";
 import Row from "./src/row.vue";
@@ -11,7 +12,13 @@ import Header from "./src/layout/header";
 import Layout from "./src/layout/layout";
 import Slider from "./src/layout/slider";
 import Toast from "./src/toast/toast";
+import Tabs from "./src/tabs/tabs";
+import TabsHeader from "./src/tabs/tabs-header";
+import TabsItme from "./src/tabs/tabs-item";
+import TabsBody from "./src/tabs/tabs-body";
+import TabsPane from "./src/tabs/tabs-pane";
 
+Vue.component("g-icon", Icon);
 Vue.component("g-button-group", ButtonGroup);
 Vue.component("g-button", Button);
 Vue.component("g-input", Input);
@@ -25,11 +32,18 @@ Vue.component("g-slider", Slider);
 Vue.component("g-toast", Toast);
 Vue.use(Plugin);
 
+Vue.component("g-tabs", Tabs);
+Vue.component("g-tabs-header", TabsHeader);
+Vue.component("g-tabs-item", TabsItme);
+Vue.component("g-tabs-body", TabsBody);
+Vue.component("g-tabs-pane", TabsPane);
+
 new Vue({
   el: "#app",
   data: {
     loading1: false,
     message: "孙",
+    selectTab: "sport",
   },
   mounted() {},
   methods: {
