@@ -18,6 +18,8 @@ import TabsItme from "./src/tabs/tabs-item";
 import TabsBody from "./src/tabs/tabs-body";
 import TabsPane from "./src/tabs/tabs-pane";
 import Popover from "./src/popover/popover";
+import Collapse from "./src/collapse/collapse";
+import CollapseItem from "./src/collapse/collapse-item";
 
 Vue.component("g-icon", Icon);
 Vue.component("g-button-group", ButtonGroup);
@@ -39,6 +41,8 @@ Vue.component("g-tabs-item", TabsItme);
 Vue.component("g-tabs-body", TabsBody);
 Vue.component("g-tabs-pane", TabsPane);
 Vue.component("g-popover", Popover);
+Vue.component("g-collapse", Collapse);
+Vue.component("g-collapse-item", CollapseItem);
 
 new Vue({
   el: "#app",
@@ -46,6 +50,7 @@ new Vue({
     loading1: false,
     message: "孙",
     selectTab: "sport",
+    selectedItem: ["1", "2"],
   },
   mounted() {},
   methods: {
