@@ -60,7 +60,34 @@
   </head>
   <body>
     <div id="app">
-      
+      <div class="box" style="overflow: hidden;">
+        <g-popover position="bottom">
+          <template slot="content">
+            <div>
+              adfasdfdsfadfasdfdsfadfasfadfasdfdsfadfasdfdsfadfasdfdsfadfasdfdsfadfasdfdsfadfasdfdsf
+            </div>
+          </template>
+          <g-button>点我</g-button>
+        </g-popover>
+        <g-popover position="top">
+          <template slot="content">
+            <div>popover 内容popover 内容</div>
+          </template>
+          <g-button>点我</g-button>
+        </g-popover>
+        <g-popover position="left">
+          <template slot="content">
+            <div>popover r 内容popover 内容popover 内容</div>
+          </template>
+          <g-button>点我</g-button>
+        </g-popover>
+        <g-popover position="right" trigger="hover">
+          <template slot="content">
+            <div>popover容</div>
+          </template>
+          <g-button>点我</g-button>
+        </g-popover>
+      </div>
       <div class="box">
         <h1>Tabs</h1>
         <g-tabs :selected.async="selectTab" direction="vertical">
@@ -124,24 +151,7 @@
         <h1>Toast</h1>
         <button @click="showToast">这是toast</button>
       </div>
-      <div class="box" style="overflow: hidden;">
-        <g-popover>
-          <template slot="content">
-            <div>
-              <h1>popover 内容</h1>
-              <h1>popover 内容</h1>
-              <h1>popover 内容</h1>
-            </div>
-          </template>
-          <button>点我</button>
-        </g-popover>
-        <g-popover>
-          <template slot="content">
-            <div>popover 内容</div>
-          </template>
-          <button>点我</button>
-        </g-popover>
-      </div>
+     
     </div>
   </body>
   <script src="./app.js"></script>
