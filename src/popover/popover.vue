@@ -1,9 +1,16 @@
 <template>
-  <div class="popover" @click="xxx">
-    <div class="content-wrapper" v-if="visible" @click.stop>
+  <div class="popover">
+    <div
+      ref="content-wrapper"
+      class="content-wrapper"
+      v-if="visible"
+      @click.stop
+    >
       <slot name="content"></slot>
     </div>
-    <slot></slot>
+    <span ref="trigger-wrapper" @click="trigger">
+      <slot></slot>
+    </span>
   </div>
 </template>
 
@@ -16,32 +23,44 @@ export default {
     };
   },
   methods: {
-    xxx() {
+    trigger() {
       this.visible = !this.visible;
       if (this.visible) {
         this.$nextTick(() => {
-          let x = () => {
-            this.visible = false;
-            document.removeEventListener("click", x);
-          };
-          document.addEventListener("click", x);
+          this.moveWrapperToBody();
+          this.addDocumentListener();
         });
       }
     },
+    moveWrapperToBody() {
+      document.body.appendChild(this.$refs["content-wrapper"]);
+      let { width, height, top, left } = this.$refs[
+        "trigger-wrapper"
+      ].getBoundingClientRect();
+      this.$refs["content-wrapper"].style.left = `${left + window.scrollX}px`;
+      this.$refs["content-wrapper"].style.top = `${top + window.scrollY}px`;
+    },
+    addDocumentListener() {
+      let x = () => {
+        this.visible = false;
+        document.removeEventListener("click", x);
+      };
+      document.addEventListener("click", x);
+    },
   },
+  mounted() {},
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .popover {
   display: inline-block;
   vertical-align: middle;
   position: relative;
-  .content-wrapper {
-    position: absolute;
-    bottom: 100%;
-    left: 0;
-    border: 1px solid red;
-  }
+}
+.content-wrapper {
+  position: absolute;
+  border: 1px solid red;
+  transform: translateY(-100%);
 }
 </style>
