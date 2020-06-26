@@ -64,5 +64,8 @@ new Vue({
         autoClose: 5,
       });
     },
+    yyy() {
+      console.log("yyy");
+    },
   },
 });

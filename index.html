@@ -124,10 +124,14 @@
         <h1>Toast</h1>
         <button @click="showToast">这是toast</button>
       </div>
-      <div class="box">
+      <div class="box" style="overflow: hidden;">
         <g-popover>
           <template slot="content">
-            <div>popover 内容</div>
+            <div>
+              <h1>popover 内容</h1>
+              <h1>popover 内容</h1>
+              <h1>popover 内容</h1>
+            </div>
           </template>
           <button>点我</button>
         </g-popover>

@@ -27,12 +27,12 @@ export default {
       this.visible = !this.visible;
       if (this.visible) {
         this.$nextTick(() => {
-          this.moveWrapperToBody();
+          this.appendWrapperToBody();
           this.addDocumentListener();
         });
       }
     },
-    moveWrapperToBody() {
+    appendWrapperToBody() {
       document.body.appendChild(this.$refs["content-wrapper"]);
       let { width, height, top, left } = this.$refs[
         "trigger-wrapper"
