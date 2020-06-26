@@ -6,8 +6,8 @@
   "scripts": {
     "start": "parcel ./index.html --no-cache --out-dir dist/server",
     "build": "parcel build ./index.html --no-cache --out-dir dist/build",
-    "dev-test": "parcel watch test/* --no-cache --out-dir dist/test & karma start",
-    "test": "parcel build test/* --no-cache --no-minify --out-dir dist/test && karma start --single-run"
+    "dev-test": "parcel watch test/**/*.test.js --no-cache --out-dir dist/test & karma start",
+    "test": "parcel build test/**/*.test.js --no-cache --no-minify --out-dir dist/test && karma start --single-run"
   },
   "repository": {
     "type": "git",

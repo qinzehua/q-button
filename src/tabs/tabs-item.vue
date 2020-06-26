@@ -1,5 +1,5 @@
 <template>
-  <div class="tabs-item" @click="switchItem" :class="classes">
+  <div class="tabs-item" @click="switchItem" :class="classes" :data-name="name">
     <slot></slot>
   </div>
 </template>
@@ -22,6 +22,7 @@ export default {
     classes() {
       return {
         active: this.active,
+        disabled: this.disabled,
       };
     },
   },
@@ -31,16 +32,17 @@ export default {
     };
   },
   mounted() {
-    this.eventBus.$on("update:selected", (name, vm) => {
-      if (name === this.name) {
-        this.active = true;
-      } else {
-        this.active = false;
-      }
-    });
+    if (this.eventBus) {
+      this.eventBus.$on("update:selected", (name, vm) => {
+        this.active = name === this.name;
+      });
+    }
   },
   methods: {
     switchItem() {
+      if (this.disabled || !this.eventBus) {
+        return;
+      }
       this.eventBus.$emit("update:selected", this.name, this);
     },
   },
@@ -59,6 +61,10 @@ $blue: blue;
   &.active {
     color: $blue;
     font-weight: bold;
+  }
+  &.disabled {
+    color: gray;
+    cursor: not-allowed;
   }
 }
 </style>

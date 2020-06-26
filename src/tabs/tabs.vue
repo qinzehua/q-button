@@ -33,10 +33,14 @@ export default {
   },
   created() {},
   mounted() {
+    if (this.$children.length === 0) {
+      console.warn("tabs 没有子组件, 子组件应该是tabs-header和tabs-body");
+    }
     this.$children.forEach((vm) => {
       if ("TabsHeader" === vm.$options.name) {
         vm.$children.forEach((item) => {
           if (
+            !item.disabled &&
             item.$options.name === "TabsItem" &&
             item.name === this.selected
           ) {
