@@ -17,6 +17,7 @@ import TabsHeader from "./src/tabs/tabs-header";
 import TabsItme from "./src/tabs/tabs-item";
 import TabsBody from "./src/tabs/tabs-body";
 import TabsPane from "./src/tabs/tabs-pane";
+import Popover from "./src/popover/popover";
 
 Vue.component("g-icon", Icon);
 Vue.component("g-button-group", ButtonGroup);
@@ -37,6 +38,7 @@ Vue.component("g-tabs-header", TabsHeader);
 Vue.component("g-tabs-item", TabsItme);
 Vue.component("g-tabs-body", TabsBody);
 Vue.component("g-tabs-pane", TabsPane);
+Vue.component("g-popover", Popover);
 
 new Vue({
   el: "#app",
@@ -61,6 +63,9 @@ new Vue({
         },
         autoClose: 5,
       });
+    },
+    yyy() {
+      console.log("yyy");
     },
   },
 });
