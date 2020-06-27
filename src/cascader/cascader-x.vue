@@ -11,7 +11,7 @@
         <Icon v-if="item.children" name="right"></Icon>
       </div>
     </div>
-    <div class="cascader-x-right" v-if="leftSelected">
+    <div class="cascader-x-right" v-if="rightItems">
       <cascader-x :options="rightItems" :height="height"></cascader-x>
     </div>
   </div>
