@@ -7,7 +7,9 @@
     "start": "parcel ./index.html --no-cache --out-dir dist/server",
     "build": "parcel build ./index.html --no-cache --out-dir dist/build",
     "dev-test": "parcel watch test/**/*.test.js --no-cache --out-dir dist/test & karma start",
-    "test": "parcel build test/**/*.test.js --no-cache --no-minify --out-dir dist/test && karma start --single-run"
+    "test": "parcel build test/**/*.test.js --no-cache --no-minify --out-dir dist/test && karma start --single-run",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "repository": {
     "type": "git",
@@ -43,9 +45,13 @@
     "parcel-bundler": "^1.9.2",
     "requirejs": "^2.3.6",
     "sass": "^1.26.8",
+    "sass-loader": "^8.0.2",
+    "scss-loader": "0.0.1",
     "sinon": "^9.0.1",
     "sinon-chai": "^3.5.0",
-    "vue-template-compiler": "2.5.16"
+    "vue-server-renderer": "^2.5.16",
+    "vue-template-compiler": "2.5.16",
+    "vuepress": "^0.13.1"
   },
   "alias": {
     "vue": "./node_modules/vue/dist/vue.common.js"

@@ -20,19 +20,6 @@ vue 组件
 
 你还需要设置默认颜色变量(IE 15 及以上浏览器都次支持此样式)
 
-```
-:root {
-        --button-height: 32px;
-        --font-size: 14px;
-        --button-bg: white;
-        --button-active-bg: #eee;
-        --border-radius: 4px;
-        --color: #333;
-        --border-color: #999;
-        --border-hover-color: #666;
-      }
-```
-
 2.安装
 
 ```

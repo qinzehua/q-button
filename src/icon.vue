@@ -3,9 +3,10 @@
     <use :xlink:href="`#i-${name}`"></use></svg
 ></template>
 
-<script>
+<script type="module">
+import "./svg";
 export default {
-  props: ["name"]
+  props: ["name"],
 };
 </script>
 
