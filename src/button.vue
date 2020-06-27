@@ -5,7 +5,7 @@
     @click="$emit('click')"
   >
     <g-icon :name="icon" v-if="icon && !loading" class="icon"></g-icon>
-    <g-icon name="loading" v-if="icon && loading" class="icon loading"></g-icon>
+    <g-icon name="loading" v-if="loading" class="icon loading"></g-icon>
     <div class="g-button-content">
       <slot></slot>
     </div>

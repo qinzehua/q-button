@@ -49,6 +49,7 @@
     "scss-loader": "0.0.1",
     "sinon": "^9.0.1",
     "sinon-chai": "^3.5.0",
+    "vue-server-renderer": "^2.5.16",
     "vue-template-compiler": "2.5.16",
     "vuepress": "^0.13.1"
   },

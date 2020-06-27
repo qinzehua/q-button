@@ -1,4 +1,5 @@
 module.exports = {
+  base: "/q-gulu/",
   title: "Hello VuePress",
   description: "Just playing around",
   themeConfig: {

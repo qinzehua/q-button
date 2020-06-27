@@ -15,6 +15,7 @@
 <script>
 import Button from "../../../src/button";
 export default {
+  name: "button-demos",
   components: {
     gButton: Button,
   },
