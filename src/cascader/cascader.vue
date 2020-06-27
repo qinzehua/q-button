@@ -4,7 +4,7 @@
       <slot></slot>
     </div>
     <div class="popover" v-if="cascaderVisible">
-      <cascader-x :options="options"></cascader-x>
+      <cascader-x :options="options" :height="height"></cascader-x>
     </div>
   </div>
 </template>
@@ -20,6 +20,9 @@ export default {
     options: {
       type: Array,
     },
+    height: {
+      type: String,
+    },
   },
   data() {
     return {
@@ -32,5 +35,15 @@ export default {
 <style lang="scss" scoped>
 @import "../var";
 .cascader {
+  display: inline-block;
+  position: relative;
+
+  .popover {
+    background-color: white;
+    @extend .box-shadow;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 5px);
+  }
 }
 </style>
