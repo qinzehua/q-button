@@ -6,7 +6,7 @@
   >
     <g-icon :name="icon" v-if="icon && !loading" class="icon"></g-icon>
     <g-icon name="loading" v-if="icon && loading" class="icon loading"></g-icon>
-    <div class="content">
+    <div class="g-button-content">
       <slot></slot>
     </div>
   </button>
@@ -37,7 +37,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 $button-height: 32px;
 $font-size: 14px;
 $button-bg: white;
@@ -54,21 +54,21 @@ $border-hover-color: #666;
   }
 }
 .g-button {
-  font-size: var($font-size);
-  height: var($button-height);
+  font-size: $font-size;
+  height: $button-height;
   padding: 0 1rem;
-  border-radius: var($border-radius);
-  border: 1px solid var($border-color);
-  background: var($button-bg);
+  border-radius: $border-radius;
+  border: 1px solid $border-color;
+  background: $button-bg;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   vertical-align: middle;
   &:hover {
-    border-color: var($border-hover-color);
+    border-color: $border-hover-color;
   }
   &:active {
-    background-color: var($button-active-bg);
+    background-color: $button-active-bg;
   }
   &:focus {
     outline: none;
@@ -77,7 +77,7 @@ $border-hover-color: #666;
     order: 1;
     margin-right: 0.3em;
   }
-  .content {
+  .g-button-content {
     order: 2;
   }
   &.icon-right {
@@ -86,7 +86,7 @@ $border-hover-color: #666;
       margin-left: 0.3em;
       margin-right: 0;
     }
-    .content {
+    .g-button-content {
       order: 1;
     }
   }

@@ -45,6 +45,8 @@
     "parcel-bundler": "^1.9.2",
     "requirejs": "^2.3.6",
     "sass": "^1.26.8",
+    "sass-loader": "^8.0.2",
+    "scss-loader": "0.0.1",
     "sinon": "^9.0.1",
     "sinon-chai": "^3.5.0",
     "vue-template-compiler": "2.5.16",
