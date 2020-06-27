@@ -28,7 +28,12 @@ export default {
     };
   },
   mounted() {
-    this.eventBus.$emit("update:selected", this.selected);
+    if (this.single) {
+      this.eventBus.$emit("update:selected", [this.selected[0]]);
+    } else {
+      this.eventBus.$emit("update:selected", this.selected);
+    }
+
     this.eventBus.$on("update:addSelected", (name) => {
       let selected = JSON.parse(JSON.stringify(this.selected));
       if (this.single) {
