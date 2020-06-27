@@ -20,6 +20,7 @@ import TabsPane from "./src/tabs/tabs-pane";
 import Popover from "./src/popover/popover";
 import Collapse from "./src/collapse/collapse";
 import CollapseItem from "./src/collapse/collapse-item";
+import Cascader from "./src/cascader/cascader";
 
 Vue.component("g-icon", Icon);
 Vue.component("g-button-group", ButtonGroup);
@@ -43,6 +44,7 @@ Vue.component("g-tabs-pane", TabsPane);
 Vue.component("g-popover", Popover);
 Vue.component("g-collapse", Collapse);
 Vue.component("g-collapse-item", CollapseItem);
+Vue.component("g-cascader", Cascader);
 
 new Vue({
   el: "#app",
@@ -51,6 +53,52 @@ new Vue({
     message: "孙",
     selectTab: "sport",
     selectedItem: ["1", "2"],
+    options: [
+      {
+        name: "四川",
+        children: [
+          {
+            name: "成都",
+            children: [
+              {
+                name: "成华区",
+              },
+              {
+                name: "武侯区",
+              },
+              {
+                name: "金牛区",
+              },
+            ],
+          },
+          {
+            name: "达州",
+            children: [
+              {
+                name: "通川区",
+              },
+              {
+                name: "武侯区",
+              },
+              {
+                name: "金牛区",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "广东",
+        children: [
+          {
+            name: "广州",
+          },
+          {
+            name: "佛山",
+          },
+        ],
+      },
+    ],
   },
   mounted() {},
   methods: {

@@ -48,6 +48,9 @@
   <body>
     <div id="app">
       <div class="box">
+        <g-cascader :options="options"></g-cascader>
+      </div>
+      <div class="box">
         <g-collapse :selected.sync="selectedItem" :single="true">
           <g-collapse-item title="标题1" name="1">内容1</g-collapse-item>
           <g-collapse-item title="标题2" name="2">内容2</g-collapse-item>
