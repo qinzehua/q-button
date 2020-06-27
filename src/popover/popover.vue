@@ -81,7 +81,10 @@ export default {
         top,
         left,
       } = TriggerWrapperRef.getBoundingClientRect();
-      const { height: ConHeight } = ContentWrapperRef.getBoundingClientRect();
+      const {
+        height: ConHeight,
+        width: ConWidth,
+      } = ContentWrapperRef.getBoundingClientRect();
       const positions = {
         top: {
           left: left + window.scrollX,
@@ -92,7 +95,7 @@ export default {
           top: top + window.scrollY + height,
         },
         left: {
-          left: left + window.scrollX,
+          left: left + window.scrollX - ConWidth,
           top: top + window.scrollY + (height - ConHeight) / 2,
         },
         right: {
@@ -116,11 +119,9 @@ export default {
     if (this.trigger === "hover") {
       this.$refs.popover.addEventListener(this.openEvetn, () => {
         this.visible = true;
-        if (this.visible) {
-          this.$nextTick(() => {
-            this.appendWrapperToBody();
-          });
-        }
+        this.$nextTick(() => {
+          this.appendWrapperToBody();
+        });
       });
       this.$refs.popover.addEventListener(this.closeEvent, () => {
         this.visible = false;
@@ -181,7 +182,6 @@ export default {
     }
   }
   &.position-left {
-    transform: translateX(-100%);
     margin-left: -10px;
     &::before {
       left: 100%;
