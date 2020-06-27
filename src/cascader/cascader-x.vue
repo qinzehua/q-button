@@ -1,8 +1,16 @@
 <template>
-  <div>
-    <div v-for="(item, idx) in options" :key="idx" class="cascader-x">
-      {{ item.name }}
-      <cascader-x v-if="item.children" :options="item.children"></cascader-x>
+  <div class="cascader-x">
+    <div class="left">
+      <div
+        v-for="(item, idx) in options"
+        :key="idx"
+        @click="leftSelected = item"
+      >
+        {{ item.name }}
+      </div>
+    </div>
+    <div class="right" v-if="leftSelected">
+      <cascader-x :options="rightItems"></cascader-x>
     </div>
   </div>
 </template>
@@ -15,12 +23,30 @@ export default {
       type: Array,
     },
   },
+  data() {
+    return {
+      leftSelected: null,
+    };
+  },
+  computed: {
+    rightItems() {
+      if (this.leftSelected && this.leftSelected.children) {
+        return this.leftSelected.children;
+      } else {
+        return null;
+      }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .cascader-x {
-  border: 1px solid red;
-  margin: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  .left {
+    border: 1px solid red;
+  }
 }
 </style>
