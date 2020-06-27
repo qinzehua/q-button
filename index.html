@@ -48,7 +48,9 @@
   <body>
     <div id="app">
       <div class="box">
-        <g-cascader :options="options"></g-cascader>
+        <g-cascader :options="options">
+          <g-button>显示</g-button>
+        </g-cascader>
       </div>
       <div class="box">
         <g-collapse :selected.sync="selectedItem" :single="true">
