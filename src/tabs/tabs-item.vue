@@ -33,7 +33,7 @@ export default {
   },
   mounted() {
     if (this.eventBus) {
-      this.eventBus.$on("update:selected", (name, vm) => {
+      this.eventBus.$on("update:selected", name => {
         this.active = name === this.name;
       });
     }

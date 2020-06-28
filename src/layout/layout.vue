@@ -10,19 +10,19 @@ export default {
   data() {
     return {
       layoutClass: {
-        hasSlider: false,
-      },
+        hasSlider: false
+      }
     };
   },
   mounted() {
-    this.$children.forEach((vm) => {
+    this.$children.forEach(vm => {
       if (vm.$options.name === "gSlider") {
         console.log(vm.$options.name);
 
         this.layoutClass.hasSlider = true;
       }
     });
-  },
+  }
 };
 </script>
 
