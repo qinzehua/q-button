@@ -25,7 +25,7 @@
         <template slot="content">
           <div>popover 内容popover 内容</div>
         </template>
-        <g-button>点我</g-button>
+        <g-button :loading="true">点我</g-button>
       </g-popover>
       <g-popover position="left">
         <template slot="content">

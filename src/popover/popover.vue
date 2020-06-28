@@ -64,7 +64,7 @@ export default {
     triggerPop() {
       this.visible = !this.visible;
       if (this.visible) {
-        this.$nextTick(() => {
+        setTimeout(() => {
           this.appendWrapperToBody();
           this.addDocumentListener();
         });
