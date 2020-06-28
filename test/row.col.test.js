@@ -10,7 +10,7 @@ describe("Row Col", () => {
   it("存在", () => {
     expect(Row).to.exist;
   });
-  it("接收 gutter 属性", (done) => {
+  it("接收 gutter 属性", done => {
     Vue.component("g-row", Row);
     Vue.component("g-col", Col);
     const div = document.createElement("div");
@@ -21,7 +21,7 @@ describe("Row Col", () => {
       </g-row>
     `;
     const vm = new Vue({
-      el: div,
+      el: div
     });
     setTimeout(() => {
       const rows = vm.$el.querySelectorAll(".row");

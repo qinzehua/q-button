@@ -6,7 +6,7 @@
 <script type="module">
 import "./svg";
 export default {
-  props: ["name"],
+  props: ["name"]
 };
 </script>
 

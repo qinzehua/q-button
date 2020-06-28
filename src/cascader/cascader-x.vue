@@ -22,19 +22,19 @@ import Icon from "../icon";
 export default {
   name: "cascaderX",
   components: {
-    Icon,
+    Icon
   },
   props: {
     options: {
-      type: Array,
+      type: Array
     },
     height: {
-      type: String,
-    },
+      type: String
+    }
   },
   data() {
     return {
-      leftSelected: null,
+      leftSelected: null
     };
   },
   computed: {
@@ -44,8 +44,8 @@ export default {
       } else {
         return null;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

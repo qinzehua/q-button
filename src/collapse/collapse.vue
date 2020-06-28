@@ -11,20 +11,20 @@ export default {
   props: {
     single: {
       type: Boolean,
-      default: true,
+      default: true
     },
     selected: {
-      type: Array,
-    },
+      type: Array
+    }
   },
   data() {
     return {
-      eventBus: new Vue(),
+      eventBus: new Vue()
     };
   },
   provide() {
     return {
-      eventBus: this.eventBus,
+      eventBus: this.eventBus
     };
   },
   mounted() {
@@ -34,7 +34,7 @@ export default {
       this.eventBus.$emit("update:selected", this.selected);
     }
 
-    this.eventBus.$on("update:addSelected", (name) => {
+    this.eventBus.$on("update:addSelected", name => {
       let selected = JSON.parse(JSON.stringify(this.selected));
       if (this.single) {
         selected = [name];
@@ -45,7 +45,7 @@ export default {
       this.$emit("update:selected", selected);
     });
 
-    this.eventBus.$on("update:deleteSelected", (name) => {
+    this.eventBus.$on("update:deleteSelected", name => {
       const selected = JSON.parse(JSON.stringify(this.selected));
 
       const idx = selected.indexOf(name);
@@ -53,7 +53,7 @@ export default {
       this.eventBus.$emit("update:selected", selected);
       this.$emit("update:selected", selected);
     });
-  },
+  }
 };
 </script>
 

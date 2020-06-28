@@ -7,7 +7,6 @@ module.exports = function(config) {
         includeStack: true,
       },
     },
-
     files: ["dist/test/**/*.test.js"],
     exclude: [],
     preprocessors: {},

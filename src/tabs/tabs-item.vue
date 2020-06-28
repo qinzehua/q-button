@@ -11,24 +11,24 @@ export default {
   props: {
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     name: {
       type: String,
-      require: true,
-    },
+      require: true
+    }
   },
   computed: {
     classes() {
       return {
         active: this.active,
-        disabled: this.disabled,
+        disabled: this.disabled
       };
-    },
+    }
   },
   data() {
     return {
-      active: false,
+      active: false
     };
   },
   mounted() {
@@ -44,8 +44,8 @@ export default {
         return;
       }
       this.eventBus.$emit("update:selected", this.name, this);
-    },
-  },
+    }
+  }
 };
 </script>
 

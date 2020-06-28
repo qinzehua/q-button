@@ -22,8 +22,8 @@ describe("TabsItme", () => {
     const Constructor = Vue.extend(TabsItme);
     const vm = new Constructor({
       propsData: {
-        name: "xxx",
-      },
+        name: "xxx"
+      }
     }).$mount();
     expect(vm.$el.getAttribute("data-name")).to.eq("xxx");
   });
@@ -32,8 +32,8 @@ describe("TabsItme", () => {
     const Constructor = Vue.extend(TabsItme);
     const vm = new Constructor({
       propsData: {
-        disabled: true,
-      },
+        disabled: true
+      }
     }).$mount();
     expect(vm.$el.classList.contains("disabled")).to.be.true;
     const callback = sinon.fake();

@@ -1,12 +1,12 @@
 <template>
   <div class="header">
-    <slot>
+    <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'gHeader',
+  name: "gHeader"
 };
 </script>
 

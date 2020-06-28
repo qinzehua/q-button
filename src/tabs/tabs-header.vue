@@ -18,7 +18,7 @@ export default {
       this.$refs.line.style.width = `${width}px`;
       this.$refs.line.style.left = `${left - 22}px`;
     });
-  },
+  }
 };
 </script>
 

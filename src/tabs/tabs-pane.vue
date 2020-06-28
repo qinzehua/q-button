@@ -11,19 +11,19 @@ export default {
   props: {
     name: {
       type: String,
-      require: true,
-    },
+      require: true
+    }
   },
   computed: {
     classes() {
       return {
-        active: this.active,
+        active: this.active
       };
-    },
+    }
   },
   data() {
     return {
-      active: false,
+      active: false
     };
   },
   mounted() {
@@ -34,7 +34,7 @@ export default {
         this.active = false;
       }
     });
-  },
+  }
 };
 </script>
 

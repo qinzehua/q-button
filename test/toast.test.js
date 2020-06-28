@@ -10,14 +10,14 @@ describe("Toast 测试", () => {
   });
 
   describe("props", () => {
-    it("接受 autoClose", (done) => {
+    it("接受 autoClose", done => {
       let div = document.createElement("div");
       document.body.appendChild(div);
       const Constructor = Vue.extend(Toast);
       const vm = new Constructor({
         propsData: {
-          autoClose: 1,
-        },
+          autoClose: 1
+        }
       }).$mount(div);
 
       vm.$on("close", () => {
@@ -35,9 +35,9 @@ describe("Toast 测试", () => {
         propsData: {
           closeBtn: {
             text: "关闭",
-            callback,
-          },
-        },
+            callback
+          }
+        }
       }).$mount();
 
       let closeBtn = vm.$el.querySelector(".close");
@@ -52,8 +52,8 @@ describe("Toast 测试", () => {
       const Constructor = Vue.extend(Toast);
       const vm = new Constructor({
         propsData: {
-          enabledHtml: true,
-        },
+          enabledHtml: true
+        }
       });
       vm.$slots.default = ["<strong>hi</strong>"];
       vm.$mount();
@@ -64,8 +64,8 @@ describe("Toast 测试", () => {
       const Constructor = Vue.extend(Toast);
       const vm = new Constructor({
         propsData: {
-          position: "bottom",
-        },
+          position: "bottom"
+        }
       }).$mount();
       expect(vm.$el.classList.contains("position-bottom")).to.eq(true);
     });

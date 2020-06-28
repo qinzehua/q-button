@@ -12,18 +12,18 @@ export default {
         toastOptions,
         onClose() {
           currentToast = null;
-        },
+        }
       });
     };
-  },
+  }
 };
 
 function createToast(Vue, { message, toastOptions, onClose }) {
   let Constructor = Vue.extend(Toast);
   let toast = new Constructor({
     propsData: {
-      ...toastOptions,
-    },
+      ...toastOptions
+    }
   });
   toast.$slots.default = [message];
   toast.$on("close", onClose);

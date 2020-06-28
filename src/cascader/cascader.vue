@@ -14,21 +14,21 @@ import CascaderX from "./cascader-x";
 export default {
   name: "CasCader",
   components: {
-    CascaderX,
+    CascaderX
   },
   props: {
     options: {
-      type: Array,
+      type: Array
     },
     height: {
-      type: String,
-    },
+      type: String
+    }
   },
   data() {
     return {
-      cascaderVisible: false,
+      cascaderVisible: false
     };
-  },
+  }
 };
 </script>
 
