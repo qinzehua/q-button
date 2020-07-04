@@ -7,7 +7,13 @@
         :loadData="loadData"
         height="200px"
       >
-        <g-button>显示</g-button>
+        <template v-slot="dataDefalut">
+          <g-button>{{
+            dataDefalut.selected.length
+              ? dataDefalut.selected.map(item => item.name).join("/")
+              : "显示"
+          }}</g-button>
+        </template>
       </g-cascader>
     </div>
     <div class="box">
@@ -119,9 +125,17 @@ function ajax(parent_id) {
     const r = db.filter(item => {
       return item.parent_id == parent_id;
     });
+    r.forEach(node => {
+      if (db.filter(item => item.parent_id === node.id).length > 0) {
+        node.isLeaf = false;
+      } else {
+        node.isLeaf = true;
+      }
+    });
+
     setTimeout(() => {
       resolve(r);
-    }, 1000);
+    });
   });
 }
 export default {

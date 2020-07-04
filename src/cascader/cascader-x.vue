@@ -8,7 +8,7 @@
         @click="leftOnClick(item)"
       >
         {{ item.name }}
-        <Icon v-if="item.children" name="right"></Icon>
+        <Icon v-if="!item.isLeaf" name="right"></Icon>
       </div>
     </div>
     <div class="cascader-x-right" v-if="rightItems">
@@ -99,6 +99,10 @@ export default {
     display: flex;
     align-items: center;
     white-space: nowrap;
+    cursor: pointer;
+    &:hover {
+      background: $item-hover-color;
+    }
     .g-icon {
       margin-left: 5px;
       font-size: 10px;
