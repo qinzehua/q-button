@@ -1,7 +1,12 @@
 <template>
   <div>
     <div class="box">
-      <g-cascader :options="options" height="200px">
+      <g-cascader
+        :options.sync="options"
+        :selected.sync="selectedOptions"
+        :loadData="loadData"
+        height="200px"
+      >
         <g-button>显示</g-button>
       </g-cascader>
     </div>
@@ -107,6 +112,18 @@
 </template>
 
 <script>
+import { db } from "./cascader/db.js";
+
+function ajax(parent_id) {
+  return new Promise(resolve => {
+    const r = db.filter(item => {
+      return item.parent_id == parent_id;
+    });
+    setTimeout(() => {
+      resolve(r);
+    }, 1000);
+  });
+}
 export default {
   name: "demo",
   data() {
@@ -115,49 +132,8 @@ export default {
       message: "孙",
       selectTab: "sport",
       selectedItem: ["1", "2"],
-      options: [
-        {
-          name: "四川",
-          children: [
-            {
-              name: "成都",
-              children: [
-                {
-                  name: "成华区"
-                },
-                {
-                  name: "武侯区"
-                },
-                {
-                  name: "金牛区"
-                }
-              ]
-            },
-            {
-              name: "达州",
-              children: [
-                {
-                  name: "通川区"
-                },
-                {
-                  name: "达川区"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          name: "广东",
-          children: [
-            {
-              name: "广州"
-            },
-            {
-              name: "佛山"
-            }
-          ]
-        }
-      ]
+      options: [],
+      selectedOptions: []
     };
   },
   methods: {
@@ -178,7 +154,15 @@ export default {
     },
     yyy() {
       console.log("yyy");
+    },
+    async loadData({ id }, callback) {
+      const r = await ajax(id);
+      callback(r);
     }
+  },
+  async created() {
+    const r = await ajax(0);
+    this.options = r;
   }
 };
 </script>

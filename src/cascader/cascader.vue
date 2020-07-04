@@ -4,7 +4,13 @@
       <slot></slot>
     </div>
     <div class="popover" v-if="cascaderVisible">
-      <cascader-x :options="options" :height="height"></cascader-x>
+      <cascader-x
+        :options="options"
+        :height="height"
+        :index="index"
+        :selected="selected"
+        @selectedChange="selectedChange"
+      ></cascader-x>
     </div>
   </div>
 </template>
@@ -22,12 +28,51 @@ export default {
     },
     height: {
       type: String
+    },
+    selected: {
+      type: Array,
+      default: () => []
+    },
+    loadData: {
+      type: Function,
+      default: () => () => {}
     }
   },
   data() {
     return {
-      cascaderVisible: false
+      cascaderVisible: false,
+      index: 0
     };
+  },
+  methods: {
+    selectedChange(selected) {
+      const optionsCopy = JSON.parse(JSON.stringify(this.options));
+      const lastSelected = selected[selected.length - 1];
+      const upateItem = this.findItemFromSource(optionsCopy, lastSelected.id);
+      this.$emit("update:selected", selected);
+      if (!upateItem.children) {
+        this.loadData(upateItem, r => {
+          if (r.length) {
+            upateItem.children = r;
+            this.$emit("update:options", optionsCopy);
+          }
+        });
+      }
+    },
+    findItemFromSource(source, id) {
+      for (let i = 0; i < source.length; i++) {
+        const item = source[i];
+        if (item.id === id) {
+          return item;
+        }
+      }
+      for (let i = 0; i < source.length; i++) {
+        const item = source[i];
+        if (item.children) {
+          return this.findItemFromSource(item.children, id);
+        }
+      }
+    }
   }
 };
 </script>

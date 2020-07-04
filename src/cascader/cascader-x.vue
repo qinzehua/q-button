@@ -5,14 +5,20 @@
         class="cascader-x-label"
         v-for="(item, idx) in options"
         :key="idx"
-        @click="leftSelected = item"
+        @click="leftOnClick(item)"
       >
         {{ item.name }}
         <Icon v-if="item.children" name="right"></Icon>
       </div>
     </div>
     <div class="cascader-x-right" v-if="rightItems">
-      <cascader-x :options="rightItems" :height="height"></cascader-x>
+      <cascader-x
+        :options="rightItems"
+        :height="height"
+        :index="index + 1"
+        :selected="selected"
+        @selectedChange="selectedChange"
+      ></cascader-x>
     </div>
   </div>
 </template>
@@ -30,22 +36,41 @@ export default {
     },
     height: {
       type: String
+    },
+    selected: {
+      type: Array,
+      default: () => []
+    },
+    index: {
+      type: Number
     }
-  },
-  data() {
-    return {
-      leftSelected: null
-    };
   },
   computed: {
     rightItems() {
-      if (this.leftSelected && this.leftSelected.children) {
-        return this.leftSelected.children;
-      } else {
+      if (!this.selected[this.index]) {
         return null;
       }
+      const item = this.options.filter(
+        item => item.id === this.selected[this.index].id
+      )[0];
+      if (item && item.children) {
+        return item.children;
+      }
+      return null;
     }
-  }
+  },
+  methods: {
+    leftOnClick(item) {
+      const copySelected = JSON.parse(JSON.stringify(this.selected));
+      copySelected[this.index] = item;
+      copySelected.splice(this.index + 1);
+      this.$emit("selectedChange", copySelected);
+    },
+    selectedChange(selected) {
+      this.$emit("selectedChange", selected);
+    }
+  },
+  mounted() {}
 };
 </script>
 
@@ -59,7 +84,11 @@ export default {
   .cascader-x-left {
     padding: 0.3em 0;
     height: 100%;
-    width: 80px;
+    width: auto;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
   .cascader-x-right {
     height: 100%;
@@ -69,6 +98,7 @@ export default {
     padding: 0.3em 1em;
     display: flex;
     align-items: center;
+    white-space: nowrap;
     .g-icon {
       margin-left: 5px;
       font-size: 10px;
