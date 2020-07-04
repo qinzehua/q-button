@@ -9,6 +9,7 @@
         :height="height"
         :index="index"
         :selected="selected"
+        :loadingItem="loadingItem"
         @selectedChange="selectedChange"
       ></cascader-x>
     </div>
@@ -41,7 +42,8 @@ export default {
   data() {
     return {
       cascaderVisible: false,
-      index: 0
+      index: 0,
+      loadingItem: {}
     };
   },
   methods: {
@@ -52,10 +54,12 @@ export default {
       const upateItem = this.findItemFromSource(optionsCopy, lastSelected.id);
       this.$emit("update:selected", selected);
 
-      if (!upateItem.children) {
+      if (!upateItem.isLeaf) {
+        this.loadingItem = lastSelected;
         this.loadData(upateItem, r => {
           if (r.length) {
             upateItem.children = r;
+            this.loadingItem = {};
             this.$emit("update:options", optionsCopy);
           }
         });

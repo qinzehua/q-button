@@ -135,7 +135,7 @@ function ajax(parent_id) {
 
     setTimeout(() => {
       resolve(r);
-    });
+    }, 1000);
   });
 }
 export default {

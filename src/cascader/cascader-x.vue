@@ -8,7 +8,12 @@
         @click="leftOnClick(item)"
       >
         {{ item.name }}
-        <Icon v-if="!item.isLeaf" name="right"></Icon>
+        <template v-if="loadingItem === item">
+          <Icon name="loading" class="g-icon loading"></Icon>
+        </template>
+        <template v-else>
+          <Icon v-if="!item.isLeaf" name="right" class="g-icon"></Icon>
+        </template>
       </div>
     </div>
     <div class="cascader-x-right" v-if="rightItems">
@@ -18,6 +23,7 @@
         :index="index + 1"
         :selected="selected"
         @selectedChange="selectedChange"
+        :loadingItem="loadingItem"
       ></cascader-x>
     </div>
   </div>
@@ -43,6 +49,10 @@ export default {
     },
     index: {
       type: Number
+    },
+    loadingItem: {
+      type: Object,
+      default: () => ({})
     }
   },
   computed: {
@@ -106,6 +116,11 @@ export default {
     .g-icon {
       margin-left: 5px;
       font-size: 10px;
+      width: 1em;
+      height: 1em;
+    }
+    .loading {
+      animation: spin 1.5s infinite linear;
     }
   }
 }
