@@ -163,7 +163,9 @@ export default {
             console.log("用户说他知道了");
           }
         },
-        autoClose: 5
+        autoClose: 5,
+        enabledHtml: true,
+        message: "xxxxx"
       });
     },
     yyy() {

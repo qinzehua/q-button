@@ -38,7 +38,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./var";
+$input-height: 32px;
+$button-height: 32px;
+$font-size: 14px;
+$button-bg: white;
+$button-active-bg: #eee;
+$border-radius: 4px;
+$border-color: #ccc;
+$border-hover-color: #666;
+$item-hover-color: #ececec;
+.box-shadow {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 .g-button {
   font-size: $font-size;

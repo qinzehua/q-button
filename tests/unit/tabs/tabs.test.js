@@ -18,7 +18,7 @@ describe("Tabs", () => {
     expect(Tabs).to.exist;
   });
 
-  it("可以接受 selected", (done) => {
+  it("可以接受 selected", done => {
     const div = document.createElement("div");
     document.body.appendChild(div);
     div.innerHTML = `
@@ -31,7 +31,7 @@ describe("Tabs", () => {
         </g-tabs>
     `;
     const vm = new Vue({
-      el: div,
+      el: div
     });
     vm.$nextTick(() => {
       let x = vm.$el.querySelector(".tabs-item:nth-child(1)");
