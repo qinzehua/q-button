@@ -1,27 +1,27 @@
 <template>
   <div class="layout" :class="layoutClass">
-    <slot>
+    <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'gLayout',
+  name: "gLayout",
   data() {
     return {
       layoutClass: {
         hasSlider: false
       }
-    }
+    };
   },
   mounted() {
     this.$children.forEach(vm => {
-      if(vm.$options.name === 'gSlider') {
+      if (vm.$options.name === "gSlider") {
         console.log(vm.$options.name);
-        
-        this.layoutClass.hasSlider = true
+
+        this.layoutClass.hasSlider = true;
       }
-    })
+    });
   }
 };
 </script>
@@ -35,5 +35,4 @@ export default {
     flex-direction: row;
   }
 }
-
 </style>

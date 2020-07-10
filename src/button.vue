@@ -17,34 +17,40 @@ import Icon from "./icon.vue";
 export default {
   props: {
     icon: {
-      type: String,
+      type: String
     },
     iconPosition: {
       type: String,
       default: "left",
       validator(vale) {
         return vale === "left" || vale === "right";
-      },
+      }
     },
     loading: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   components: {
-    "g-icon": Icon,
-  },
+    "g-icon": Icon
+  }
 };
 </script>
 
 <style lang="scss" scoped>
+$input-height: 32px;
 $button-height: 32px;
 $font-size: 14px;
 $button-bg: white;
 $button-active-bg: #eee;
 $border-radius: 4px;
-$border-color: #999;
+$border-color: #ccc;
 $border-hover-color: #666;
+$item-hover-color: #ececec;
+.box-shadow {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -53,6 +59,7 @@ $border-hover-color: #666;
     transform: rotate(360deg);
   }
 }
+
 .g-button {
   font-size: $font-size;
   height: $button-height;

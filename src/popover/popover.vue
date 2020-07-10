@@ -24,20 +24,20 @@ export default {
       default: "top",
       validator(v) {
         return ["top", "bottom", "left", "right"].indexOf(v) > -1;
-      },
+      }
     },
     trigger: {
       type: String,
       default: "click",
       validator(v) {
         return ["click", "hover"].indexOf(v) > -1;
-      },
-    },
+      }
+    }
   },
   computed: {
     classes() {
       return {
-        [`position-${this.position}`]: true,
+        [`position-${this.position}`]: true
       };
     },
     openEvetn() {
@@ -53,18 +53,18 @@ export default {
       } else {
         return "mouseleave";
       }
-    },
+    }
   },
   data() {
     return {
-      visible: false,
+      visible: false
     };
   },
   methods: {
     triggerPop() {
       this.visible = !this.visible;
       if (this.visible) {
-        this.$nextTick(() => {
+        setTimeout(() => {
           this.appendWrapperToBody();
           this.addDocumentListener();
         });
@@ -79,29 +79,29 @@ export default {
         width,
         height,
         top,
-        left,
+        left
       } = TriggerWrapperRef.getBoundingClientRect();
       const {
         height: ConHeight,
-        width: ConWidth,
+        width: ConWidth
       } = ContentWrapperRef.getBoundingClientRect();
       const positions = {
         top: {
           left: left + window.scrollX,
-          top: top + window.scrollY,
+          top: top + window.scrollY
         },
         bottom: {
           left: left + window.scrollX,
-          top: top + window.scrollY + height,
+          top: top + window.scrollY + height
         },
         left: {
           left: left + window.scrollX - ConWidth,
-          top: top + window.scrollY + (height - ConHeight) / 2,
+          top: top + window.scrollY + (height - ConHeight) / 2
         },
         right: {
           left: left + window.scrollX + width,
-          top: top + window.scrollY + (height - ConHeight) / 2,
-        },
+          top: top + window.scrollY + (height - ConHeight) / 2
+        }
       };
 
       ContentWrapperRef.style.left = positions[this.position].left + "px";
@@ -113,7 +113,7 @@ export default {
         document.removeEventListener("click", x);
       };
       document.addEventListener("click", x);
-    },
+    }
   },
   mounted() {
     if (this.trigger === "hover") {
@@ -127,7 +127,7 @@ export default {
         this.visible = false;
       });
     }
-  },
+  }
 };
 </script>
 

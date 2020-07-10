@@ -8,11 +8,11 @@
 export default {
   props: {
     gutter: {
-      type: [String, Number],
-    },
+      type: [String, Number]
+    }
   },
   mounted() {
-    this.$children.forEach((vm) => {
+    this.$children.forEach(vm => {
       vm.gutter = this.gutter;
     });
   },
@@ -20,10 +20,10 @@ export default {
     rowStyle() {
       return {
         marginLeft: -this.gutter / 2 + "px",
-        marginRight: -this.gutter / 2 + "px",
+        marginRight: -this.gutter / 2 + "px"
       };
-    },
-  },
+    }
+  }
 };
 </script>
 

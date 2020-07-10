@@ -11,16 +11,16 @@ export default {
   inject: ["eventBus"],
   props: {
     title: {
-      type: String,
+      type: String
     },
     name: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
   data() {
     return {
-      open: false,
+      open: false
     };
   },
   methods: {
@@ -30,17 +30,17 @@ export default {
       } else {
         this.eventBus.$emit("update:addSelected", this.name);
       }
-    },
+    }
   },
   mounted() {
-    this.eventBus.$on("update:selected", (names) => {
+    this.eventBus.$on("update:selected", names => {
       if (names.indexOf(this.name) > -1) {
         this.open = true;
       } else {
         this.open = false;
       }
     });
-  },
+  }
 };
 </script>
 

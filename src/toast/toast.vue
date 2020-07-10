@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import Vue from "vue";
 export default {
   data() {
     return {};
@@ -25,22 +24,22 @@ export default {
       default: 5,
       validator(value) {
         return typeof value === "number" || value === false;
-      },
+      }
     },
     closeBtn: {
-      type: Object,
+      type: Object
     },
     enabledHtml: {
       type: Boolean,
-      default: false,
+      default: false
     },
     position: {
       type: String,
       default: "top",
       validator(v) {
         return ["top", "bottom", "middle"].indexOf(v) > -1;
-      },
-    },
+      }
+    }
   },
   mounted() {
     this.executeAutoClose();
@@ -49,7 +48,7 @@ export default {
   computed: {
     toastClass() {
       return `position-${this.position}`;
-    },
+    }
   },
   methods: {
     executeAutoClose() {
@@ -75,8 +74,8 @@ export default {
       if (this.closeBtn && this.closeBtn.callback) {
         this.closeBtn.callback();
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

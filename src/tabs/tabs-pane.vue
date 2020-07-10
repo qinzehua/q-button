@@ -11,30 +11,30 @@ export default {
   props: {
     name: {
       type: String,
-      require: true,
-    },
+      require: true
+    }
   },
   computed: {
     classes() {
       return {
-        active: this.active,
+        active: this.active
       };
-    },
+    }
   },
   data() {
     return {
-      active: false,
+      active: false
     };
   },
   mounted() {
-    this.eventBus.$on("update:selected", (name, vm) => {
+    this.eventBus.$on("update:selected", name => {
       if (name === this.name) {
         this.active = true;
       } else {
         this.active = false;
       }
     });
-  },
+  }
 };
 </script>
 

@@ -1,9 +1,9 @@
-const expect = chai.expect;
-import Vue from "vue";
-import Input from "../src/input";
-
-Vue.config.productionTip = false;
-Vue.config.devtools = false;
+import chai, { expect } from "chai";
+import sinon from "sinon";
+import sinonChai from "sinon-chai";
+import { mount } from "@vue/test-utils";
+chai.use(sinonChai);
+import Input from "@/input";
 
 describe("Input", () => {
   it("存在.", () => {
@@ -11,58 +11,41 @@ describe("Input", () => {
   });
 
   describe("props", () => {
-    let Constructor;
-    let vm;
-    beforeEach(() => {
-      Constructor = Vue.extend(Input);
-    });
-    afterEach(() => {
-      vm.$destroy();
-    });
-
     it("接收 value", () => {
-      vm = new Constructor({
+      const wrapper = mount(Input, {
         propsData: {
           value: "1234"
         }
-      }).$mount();
-      const useElement = vm.$el.querySelector("input");
+      });
+      const useElement = wrapper.find("input").element;
       expect(useElement.value).to.equal("1234");
     });
 
     it("接收 disabled", () => {
-      vm = new Constructor({
+      const wrapper = mount(Input, {
         propsData: {
           disabled: true
         }
-      }).$mount();
-      const useElement = vm.$el.querySelector("input");
-      expect(useElement.disabled).to.equal(true);
+      });
+      const useElement = wrapper.find("input");
+      expect(useElement.element.disabled).to.equal(true);
     });
 
     it("接收 errormsg", () => {
-      vm = new Constructor({
+      const wrapper = mount(Input, {
         propsData: {
           errormsg: "1222xxx"
         }
-      }).$mount();
-      const useElement = vm.$el.querySelector("use");
-      expect(useElement.getAttribute("xlink:href")).to.equal("#i-error");
+      });
+      const useElement = wrapper.find("use");
+      expect(useElement.attributes().href).to.equal("#i-error");
     });
   });
 
   describe("测试事件", () => {
-    let Constructor;
-    let vm;
-    beforeEach(() => {
-      Constructor = Vue.extend(Input);
-    });
-    afterEach(() => {
-      vm.$destroy();
-    });
-
     it("支持 change/input/focus/blur 事件", () => {
-      vm = new Constructor({}).$mount();
+      const wrapper = mount(Input);
+      const vm = wrapper.vm;
       [("change", "input", "focus", "blur")].forEach(eventName => {
         const callback = sinon.fake();
         vm.$on(eventName, callback);
@@ -71,7 +54,6 @@ describe("Input", () => {
           value: { value: "hi" },
           enumerable: true
         });
-
         let inputElement = vm.$el.querySelector("input");
         inputElement.dispatchEvent(event);
         expect(callback).to.have.been.calledWith(event.target.value);

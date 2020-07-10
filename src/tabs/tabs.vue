@@ -11,24 +11,24 @@ export default {
   props: {
     selected: {
       type: String,
-      required: true,
+      required: true
     },
     direction: {
       type: String,
       default: "horizontal",
       validator(value) {
         return ["horizontal", "vertical"].indexOf(value) > -1;
-      },
-    },
+      }
+    }
   },
   data() {
     return {
-      eventBus: new Vue(),
+      eventBus: new Vue()
     };
   },
   provide() {
     return {
-      eventBus: this.eventBus,
+      eventBus: this.eventBus
     };
   },
   created() {},
@@ -36,9 +36,9 @@ export default {
     if (this.$children.length === 0) {
       console.warn("tabs 没有子组件, 子组件应该是tabs-header和tabs-body");
     }
-    this.$children.forEach((vm) => {
+    this.$children.forEach(vm => {
       if ("TabsHeader" === vm.$options.name) {
-        vm.$children.forEach((item) => {
+        vm.$children.forEach(item => {
           if (
             !item.disabled &&
             item.$options.name === "TabsItem" &&
@@ -49,7 +49,7 @@ export default {
         });
       }
     });
-  },
+  }
 };
 </script>
 

@@ -1,12 +1,12 @@
 <template>
   <div class="content">
-    <slot>
+    <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-    name: 'gContent',
+  name: "gContent"
 };
 </script>
 

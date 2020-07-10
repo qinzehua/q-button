@@ -2,7 +2,7 @@ import Toast from "./toast";
 let currentToast;
 
 export default {
-  install(Vue, options) {
+  install(Vue) {
     Vue.prototype.$toast = function(message, toastOptions) {
       if (currentToast) {
         currentToast.close();
@@ -12,18 +12,18 @@ export default {
         toastOptions,
         onClose() {
           currentToast = null;
-        },
+        }
       });
     };
-  },
+  }
 };
 
 function createToast(Vue, { message, toastOptions, onClose }) {
   let Constructor = Vue.extend(Toast);
   let toast = new Constructor({
     propsData: {
-      ...toastOptions,
-    },
+      ...toastOptions
+    }
   });
   toast.$slots.default = [message];
   toast.$on("close", onClose);
