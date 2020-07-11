@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'g-slide-item',
+  name: 'g-slides-item',
   inject: ['eventBus'],
   props: {
     name: {

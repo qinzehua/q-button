@@ -12,7 +12,9 @@
         v-for="index in childrenLength"
         :key="index - 1"
         @click="selectedChange(index - 1)"
-        :class="{ 'g-active-dot': index - 1 === selectedIndex }"
+        :class="{
+          'g-active-dot': index - 1 === selectedIndex
+        }"
         >{{ index - 1 }}</span
       >
     </div>
@@ -39,7 +41,9 @@ export default {
   },
   computed: {
     seletedName() {
-      return this.selected || this.$children[0].name;
+      return (
+        this.selected || (this.$children[0] && this.$children[0].name) || ''
+      );
     },
     selectedIndex() {
       return this.names.indexOf(this.selected) > 0
