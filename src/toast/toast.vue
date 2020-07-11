@@ -23,7 +23,7 @@ export default {
       type: [Number, Boolean],
       default: 5,
       validator(value) {
-        return typeof value === "number" || value === false;
+        return typeof value === 'number' || value === false;
       }
     },
     closeBtn: {
@@ -35,9 +35,9 @@ export default {
     },
     position: {
       type: String,
-      default: "top",
+      default: 'top',
       validator(v) {
-        return ["top", "bottom", "middle"].indexOf(v) > -1;
+        return ['top', 'bottom', 'middle'].indexOf(v) > -1;
       }
     }
   },
@@ -61,12 +61,12 @@ export default {
     updateLineStyle() {
       this.$nextTick(() => {
         this.$refs.line.style.height =
-          this.$refs.wrapper.getBoundingClientRect().height + "px";
+          this.$refs.wrapper.getBoundingClientRect().height + 'px';
       });
     },
     close() {
       this.$el.remove();
-      this.$emit("close");
+      this.$emit('close');
       this.$destroy();
     },
     onClickClose() {

@@ -16,5 +16,6 @@
   },
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "vetur.format.defaultFormatter.html": "prettier"
 }

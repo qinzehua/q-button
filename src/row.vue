@@ -19,8 +19,8 @@ export default {
   computed: {
     rowStyle() {
       return {
-        marginLeft: -this.gutter / 2 + "px",
-        marginRight: -this.gutter / 2 + "px"
+        marginLeft: -this.gutter / 2 + 'px',
+        marginRight: -this.gutter / 2 + 'px'
       };
     }
   }

@@ -4,9 +4,9 @@
 ></template>
 
 <script type="module">
-import "./svg";
+import './svg';
 export default {
-  props: ["name"]
+  props: ['name']
 };
 </script>
 

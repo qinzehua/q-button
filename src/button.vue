@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Icon from "./icon.vue";
+import Icon from './icon.vue';
 export default {
   props: {
     icon: {
@@ -21,9 +21,9 @@ export default {
     },
     iconPosition: {
       type: String,
-      default: "left",
+      default: 'left',
       validator(vale) {
-        return vale === "left" || vale === "right";
+        return vale === 'left' || vale === 'right';
       }
     },
     loading: {
@@ -32,7 +32,7 @@ export default {
     }
   },
   components: {
-    "g-icon": Icon
+    'g-icon': Icon
   }
 };
 </script>
