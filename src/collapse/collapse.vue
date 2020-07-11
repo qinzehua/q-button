@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import Vue from "vue";
+import Vue from 'vue';
 export default {
-  name: "collapse",
+  name: 'collapse',
   props: {
     single: {
       type: Boolean,
@@ -29,29 +29,29 @@ export default {
   },
   mounted() {
     if (this.single) {
-      this.eventBus.$emit("update:selected", [this.selected[0]]);
+      this.eventBus.$emit('update:selected', [this.selected[0]]);
     } else {
-      this.eventBus.$emit("update:selected", this.selected);
+      this.eventBus.$emit('update:selected', this.selected);
     }
 
-    this.eventBus.$on("update:addSelected", name => {
+    this.eventBus.$on('update:addSelected', name => {
       let selected = JSON.parse(JSON.stringify(this.selected));
       if (this.single) {
         selected = [name];
       } else {
         selected.push(name);
       }
-      this.eventBus.$emit("update:selected", selected);
-      this.$emit("update:selected", selected);
+      this.eventBus.$emit('update:selected', selected);
+      this.$emit('update:selected', selected);
     });
 
-    this.eventBus.$on("update:deleteSelected", name => {
+    this.eventBus.$on('update:deleteSelected', name => {
       const selected = JSON.parse(JSON.stringify(this.selected));
 
       const idx = selected.indexOf(name);
       selected.splice(idx, 1);
-      this.eventBus.$emit("update:selected", selected);
-      this.$emit("update:selected", selected);
+      this.eventBus.$emit('update:selected', selected);
+      this.$emit('update:selected', selected);
     });
   }
 };

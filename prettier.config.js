@@ -1,3 +1,4 @@
 module.exports = {
-  TrailingCooma: "none"
+  TrailingCooma: 'none',
+  singleQuote: true
 };

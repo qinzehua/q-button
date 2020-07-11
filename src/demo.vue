@@ -1,6 +1,19 @@
 <template>
   <div>
     <div class="box">
+      <g-slides :selected="slideSelted">
+        <g-slides-item name="1">
+          <div class="items">1</div>
+        </g-slides-item>
+        <g-slides-item name="2">
+          <div class="items">2</div>
+        </g-slides-item>
+        <g-slides-item name="3">
+          <div class="items">3</div>
+        </g-slides-item>
+      </g-slides>
+    </div>
+    <div class="box">
       <g-cascader
         :options.sync="options"
         :selected.sync="selectedOptions"
@@ -10,8 +23,8 @@
         <template v-slot="dataDefalut">
           <g-button>{{
             dataDefalut.selected.length
-              ? dataDefalut.selected.map(item => item.name).join("/")
-              : "显示"
+              ? dataDefalut.selected.map(item => item.name).join('/')
+              : '显示'
           }}</g-button>
         </template>
       </g-cascader>
@@ -118,7 +131,7 @@
 </template>
 
 <script>
-import { db } from "./cascader/db.js";
+import { db } from './cascader/db.js';
 
 function ajax(parent_id) {
   return new Promise(resolve => {
@@ -139,15 +152,16 @@ function ajax(parent_id) {
   });
 }
 export default {
-  name: "demo",
+  name: 'demo',
   data() {
     return {
       loading1: false,
-      message: "孙",
-      selectTab: "sport",
-      selectedItem: ["1", "2"],
+      message: '孙',
+      selectTab: 'sport',
+      selectedItem: ['1', '2'],
       options: [],
-      selectedOptions: []
+      selectedOptions: [],
+      slideSelted: '2'
     };
   },
   methods: {
@@ -155,21 +169,21 @@ export default {
       console.log(val);
     },
     showToast() {
-      this.$toast("已从之已从", {
-        position: "bottom",
+      this.$toast('已从之已从', {
+        position: 'bottom',
         closeBtn: {
-          text: "关闭",
+          text: '关闭',
           callback() {
-            console.log("用户说他知道了");
+            console.log('用户说他知道了');
           }
         },
         autoClose: 5,
         enabledHtml: true,
-        message: "xxxxx"
+        message: 'xxxxx'
       });
     },
     yyy() {
-      console.log("yyy");
+      console.log('yyy');
     },
     async loadData({ id }, callback) {
       const r = await ajax(id);
@@ -182,4 +196,10 @@ export default {
   }
 };
 </script>
-<style></style>
+<style>
+.items {
+  width: 100px;
+  height: 100px;
+  border: 1px solid red;
+}
+</style>
