@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="box">
-      <g-slides :selected="slideSelted">
+      <br />
+      <g-slides :selected.sync="slideSelted">
         <g-slides-item name="1">
           <div class="items">1</div>
         </g-slides-item>
@@ -161,7 +162,8 @@ export default {
       selectedItem: ['1', '2'],
       options: [],
       selectedOptions: [],
-      slideSelted: '2'
+      slideSelted: '2',
+      reverse: false
     };
   },
   methods: {
@@ -198,8 +200,12 @@ export default {
 </script>
 <style>
 .items {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 300px;
   border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
 }
 </style>

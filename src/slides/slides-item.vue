@@ -1,6 +1,6 @@
 <template>
   <transition name="slide">
-    <div class="g-slides-item" v-if="visible">
+    <div class="g-slides-item" :class="{ reverse }" v-if="visible">
       <slot></slot>
     </div>
   </transition>
@@ -22,12 +22,16 @@ export default {
   },
   data() {
     return {
-      seleted: ''
+      seleted: '',
+      reverse: false
     };
   },
   mounted() {
-    this.eventBus.$on('currentSelectd', seletedName => {
-      this.seleted = seletedName;
+    this.eventBus.$on('currentSelectd', (seletedName, reverse) => {
+      this.reverse = reverse;
+      this.$nextTick(() => {
+        this.seleted = seletedName;
+      });
     });
   }
 };
@@ -35,12 +39,13 @@ export default {
 
 <style>
 .g-slides-item {
-  display: inline-block;
 }
 .slide-leave-active {
   position: absolute;
   left: 0;
   top: 0;
+  width: 100%;
+  height: 100%;
 }
 .slide-enter-active,
 .slide-leave-active {
@@ -50,7 +55,13 @@ export default {
 .slide-enter {
   transform: translateX(100%);
 }
+.slide-enter.reverse {
+  transform: translateX(-100%);
+}
 .slide-leave-to {
   transform: translateX(-100%);
+}
+.slide-leave-to.reverse {
+  transform: translateX(100%);
 }
 </style>
