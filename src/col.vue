@@ -7,7 +7,7 @@
 <script>
 let validator = value => {
   var keys = Object.keys(value);
-  return keys.every(key => ["span", "offset"].includes(key));
+  return keys.every(key => ['span', 'offset'].includes(key));
 };
 export default {
   props: {
@@ -54,17 +54,17 @@ export default {
   computed: {
     colStyle() {
       return {
-        paddingLeft: this.gutter / 2 + "px",
-        paddingRight: this.gutter / 2 + "px"
+        paddingLeft: this.gutter / 2 + 'px',
+        paddingRight: this.gutter / 2 + 'px'
       };
     },
     colClass() {
       const { span, offset, phone, ipad, narrowpc } = this;
       return {
-        ...this.createdClasses({ span, offset }, ""),
-        ...this.createdClasses(phone, "phone-"),
-        ...this.createdClasses(ipad, "ipad-"),
-        ...this.createdClasses(narrowpc, "narrowpc-")
+        ...this.createdClasses({ span, offset }, ''),
+        ...this.createdClasses(phone, 'phone-'),
+        ...this.createdClasses(ipad, 'ipad-'),
+        ...this.createdClasses(narrowpc, 'narrowpc-')
       };
     }
   }

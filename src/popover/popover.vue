@@ -17,20 +17,20 @@
 
 <script>
 export default {
-  name: "Popover",
+  name: 'Popover',
   props: {
     position: {
       type: String,
-      default: "top",
+      default: 'top',
       validator(v) {
-        return ["top", "bottom", "left", "right"].indexOf(v) > -1;
+        return ['top', 'bottom', 'left', 'right'].indexOf(v) > -1;
       }
     },
     trigger: {
       type: String,
-      default: "click",
+      default: 'click',
       validator(v) {
-        return ["click", "hover"].indexOf(v) > -1;
+        return ['click', 'hover'].indexOf(v) > -1;
       }
     }
   },
@@ -41,17 +41,17 @@ export default {
       };
     },
     openEvetn() {
-      if (this.trigger === "click") {
-        return "click";
+      if (this.trigger === 'click') {
+        return 'click';
       } else {
-        return "mouseenter";
+        return 'mouseenter';
       }
     },
     closeEvent() {
-      if (this.trigger === "click") {
-        return "click";
+      if (this.trigger === 'click') {
+        return 'click';
       } else {
-        return "mouseleave";
+        return 'mouseleave';
       }
     }
   },
@@ -71,8 +71,8 @@ export default {
       }
     },
     appendWrapperToBody() {
-      const TriggerWrapperRef = this.$refs["trigger-wrapper"];
-      const ContentWrapperRef = this.$refs["content-wrapper"];
+      const TriggerWrapperRef = this.$refs['trigger-wrapper'];
+      const ContentWrapperRef = this.$refs['content-wrapper'];
 
       document.body.appendChild(ContentWrapperRef);
       const {
@@ -104,19 +104,19 @@ export default {
         }
       };
 
-      ContentWrapperRef.style.left = positions[this.position].left + "px";
-      ContentWrapperRef.style.top = positions[this.position].top + "px";
+      ContentWrapperRef.style.left = positions[this.position].left + 'px';
+      ContentWrapperRef.style.top = positions[this.position].top + 'px';
     },
     addDocumentListener() {
       let x = () => {
         this.visible = false;
-        document.removeEventListener("click", x);
+        document.removeEventListener('click', x);
       };
-      document.addEventListener("click", x);
+      document.addEventListener('click', x);
     }
   },
   mounted() {
-    if (this.trigger === "hover") {
+    if (this.trigger === 'hover') {
       this.$refs.popover.addEventListener(this.openEvetn, () => {
         this.visible = true;
         this.$nextTick(() => {
@@ -148,7 +148,7 @@ export default {
   background-color: white;
   &::before,
   &::after {
-    content: "";
+    content: '';
     display: block;
     border: 10px solid transparent;
     position: absolute;
