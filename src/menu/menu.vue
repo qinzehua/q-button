@@ -1,5 +1,5 @@
 <template>
-  <div class="g-menu">
+  <div class="g-menu" :class="{ vertical }">
     <slot></slot>
   </div>
 </template>
@@ -9,15 +9,21 @@ export default {
   name: 'g-menu',
   provide() {
     return {
-      root: this
+      root: this,
+      vertical: this.vertical
     };
   },
+
   props: {
     selected: {
       type: Array,
       default: () => []
     },
     multiple: {
+      type: Boolean,
+      default: false
+    },
+    vertical: {
       type: Boolean,
       default: false
     }
@@ -73,5 +79,8 @@ export default {
 .g-menu {
   display: flex;
   border-bottom: 1px solid #ccc;
+  &.vertical {
+    flex-direction: column;
+  }
 }
 </style>

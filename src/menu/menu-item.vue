@@ -1,5 +1,9 @@
 <template>
-  <div class="g-menu-item" :class="{ selected }" @click="onClick">
+  <div
+    class="g-menu-item"
+    :class="{ selected, 'g-vertical-menu-item': vertical }"
+    @click="onClick"
+  >
     <slot></slot>
   </div>
 </template>
@@ -7,7 +11,7 @@
 <script>
 export default {
   name: 'g-menu-item',
-  inject: ['root'],
+  inject: ['root', 'vertical'],
   props: {
     name: {
       type: String,
@@ -37,7 +41,7 @@ export default {
   padding: 10px 15px;
   cursor: pointer;
   position: relative;
-  &.selected {
+  &.selected:not(.g-vertical-menu-item) {
     &::after {
       content: '';
       position: absolute;
@@ -47,7 +51,11 @@ export default {
       width: 100%;
     }
   }
+  &.selected.g-vertical-menu-item {
+    color: #4a90e2;
+  }
 }
+
 .g-sub-menu .g-menu-item {
   &.selected {
     background: #eee;
