@@ -1,6 +1,6 @@
 <template>
-  <div class="g-sub-menu">
-    <span class="g-sub-menu-title" @click="onClick">
+  <div class="g-sub-menu" v-click-outside="onLeave">
+    <span class="g-sub-menu-title" :class="{ active }" @click="onEnter">
       <slot name="title"></slot>
     </span>
     <div class="g-sub-menu-popover" v-show="open">
@@ -10,17 +10,43 @@
 </template>
 
 <script>
+import clickOutside, { removeListener } from '../clickoOutside';
 export default {
+  directives: {
+    clickOutside
+  },
   name: 'g-sub-menu',
+  inject: ['root'],
+  props: {
+    name: {
+      type: String,
+      required: true
+    }
+  },
+  computed: {
+    active() {
+      return this.root.namePath.indexOf(this.name) >= 0;
+    }
+  },
   data() {
     return {
       open: false
     };
   },
   methods: {
-    onClick() {
-      this.open = !this.open;
+    onEnter() {
+      this.open = true;
+    },
+    onLeave() {
+      this.open = false;
+    },
+    updateNamePath() {
+      this.root.namePath.push(this.name);
+      this.$parent.updateNamePath && this.$parent.updateNamePath();
     }
+  },
+  beforeDestroy() {
+    removeListener(this.$el);
   }
 };
 </script>
@@ -33,6 +59,16 @@ export default {
     display: block;
     padding: 10px 15px;
     cursor: pointer;
+    &.active {
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border: 1px solid #4a90e2;
+        width: 100%;
+      }
+    }
   }
   .g-sub-menu-popover {
     position: absolute;
