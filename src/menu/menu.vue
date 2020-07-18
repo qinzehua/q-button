@@ -71,5 +71,6 @@ export default {
 <style lang="scss" scoped>
 .g-menu {
   display: flex;
+  border-bottom: 1px solid #ccc;
 }
 </style>

@@ -38,13 +38,19 @@ export default {
     position: absolute;
     top: 100%;
     white-space: nowrap;
-    border: 1px solid;
     background: white;
+    margin-top: 4px;
+    box-shadow: 0 0 3px fade-out(black, 0.8);
+    border-radius: 4px;
+    font-size: 14px;
+    color: #666;
+    min-width: 5em;
   }
 
   .g-sub-menu .g-sub-menu-popover {
     top: 0;
     left: 100%;
+    margin-left: 3px;
   }
 }
 </style>

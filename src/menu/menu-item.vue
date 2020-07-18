@@ -34,8 +34,25 @@ export default {
 .g-menu-item {
   padding: 10px 15px;
   cursor: pointer;
+  position: relative;
+  &.selected {
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border: 1px solid #4a90e2;
+      width: 100%;
+    }
+  }
 }
-.selected {
-  background: red;
+.g-sub-menu .g-menu-item {
+  &.selected {
+    background: #eee;
+    color: #111;
+    &::after {
+      display: none;
+    }
+  }
 }
 </style>
