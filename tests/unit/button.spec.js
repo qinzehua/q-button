@@ -34,12 +34,14 @@ describe('Button', () => {
 
   it('icon 默认的 order 是 1', () => {
     const wrapper = mount(Button, {
+      attachToDocument: true,
       propsData: {
         icon: 'settings'
       }
     });
-    const buttonClassName = wrapper.classes();
-    expect(buttonClassName).to.contains('icon-left');
+    const vm = wrapper.vm;
+    const icon = vm.$el.querySelector('svg');
+    expect(getComputedStyle(icon).order).to.eq('1');
   });
 
   it('设置 iconPosition 可以改变 order', () => {

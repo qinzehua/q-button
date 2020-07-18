@@ -4,7 +4,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit --watch",
+    "test": "karma start --single-run",
+    "test:unit:old": "vue-cli-service test:unit --watch",
+    "test:unit": "karma start",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -23,6 +25,13 @@
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-vue": "^6.2.2",
+    "karma": "^5.1.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-mocha": "^2.0.1",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-spec-reporter": "0.0.32",
+    "karma-webpack": "^4.0.2",
+    "mocha": "^8.0.1",
     "prettier": "^1.19.1",
     "sass": "^1.26.9",
     "sass-loader": "^8.0.2",
