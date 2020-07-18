@@ -7,6 +7,11 @@
 <script>
 export default {
   name: 'g-menu',
+  provide() {
+    return {
+      root: this
+    };
+  },
   props: {
     selected: {
       type: Array,
@@ -17,6 +22,11 @@ export default {
       default: false
     }
   },
+  data() {
+    return {
+      items: []
+    };
+  },
   mounted() {
     this.updateChildren();
     this.listenToChildre();
@@ -24,12 +34,11 @@ export default {
   updated() {
     this.updateChildren();
   },
-  computed: {
-    items() {
-      return this.$children.filter(vm => vm.$options.name === 'g-menu-item');
-    }
-  },
+
   methods: {
+    addItem(child) {
+      this.items.push(child);
+    },
     updateChildren() {
       this.items.forEach(vm => {
         if (this.selected.indexOf(vm.name) >= 0) {
@@ -49,6 +58,7 @@ export default {
               this.$emit('update:selected', copySleted);
             }
           } else {
+            console.log('++++');
             this.$emit('update:selected', [name]);
           }
         });
@@ -60,5 +70,6 @@ export default {
 
 <style lang="scss" scoped>
 .g-menu {
+  display: flex;
 }
 </style>

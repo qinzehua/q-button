@@ -7,6 +7,7 @@
 <script>
 export default {
   name: 'g-menu-item',
+  inject: ['root'],
   props: {
     name: {
       type: String,
@@ -18,6 +19,9 @@ export default {
       selected: false
     };
   },
+  mounted() {
+    this.root.addItem(this);
+  },
   methods: {
     onClick() {
       this.$emit('add:selected', this.name);
@@ -28,6 +32,8 @@ export default {
 
 <style lang="scss" scoped>
 .g-menu-item {
+  padding: 10px 15px;
+  cursor: pointer;
 }
 .selected {
   background: red;

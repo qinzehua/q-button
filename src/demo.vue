@@ -4,6 +4,18 @@
       <g-menu :selected.sync="selectedMenu">
         <g-menu-item name="1">123</g-menu-item>
         <g-menu-item name="2">456</g-menu-item>
+        <g-sub-menu>
+          <template slot="title">有子菜单</template>
+          <g-menu-item name="a">企业文化</g-menu-item>
+          <g-menu-item name="b">开发团队</g-menu-item>
+          <g-menu-item name="c">联系电话</g-menu-item>
+          <g-sub-menu>
+            <template slot="title">联系方式</template>
+            <g-menu-item name="w">微信</g-menu-item>
+            <g-menu-item name="q">qq</g-menu-item>
+            <g-menu-item name="m">手机</g-menu-item>
+          </g-sub-menu>
+        </g-sub-menu>
         <g-menu-item name="3">789</g-menu-item>
       </g-menu>
     </div>
@@ -171,7 +183,7 @@ export default {
       selectedOptions: [],
       slideSelted: '2',
       reverse: false,
-      selectedMenu: ['3']
+      selectedMenu: ['1']
     };
   },
   methods: {
