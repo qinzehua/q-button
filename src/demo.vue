@@ -1,6 +1,13 @@
 <template>
   <div>
     <div class="box">
+      <g-menu :selected.sync="selectedMenu">
+        <g-menu-item name="1">123</g-menu-item>
+        <g-menu-item name="2">456</g-menu-item>
+        <g-menu-item name="3">789</g-menu-item>
+      </g-menu>
+    </div>
+    <div class="box">
       <br />
       <g-slides :selected.sync="slideSelted">
         <g-slides-item name="1">
@@ -163,7 +170,8 @@ export default {
       options: [],
       selectedOptions: [],
       slideSelted: '2',
-      reverse: false
+      reverse: false,
+      selectedMenu: ['3']
     };
   },
   methods: {
