@@ -65,7 +65,6 @@ export default {
               this.$emit('update:selected', copySleted);
             }
           } else {
-            console.log('++++');
             this.$emit('update:selected', [name]);
           }
         });

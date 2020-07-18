@@ -22,7 +22,7 @@ const removeListener = el => {
 document.addEventListener('click', documentClick);
 
 export default {
-  bind: function(el, binding, vnode) {
+  bind: function(el, binding) {
     callbacks.push({ el, callback: binding.value });
   }
 };

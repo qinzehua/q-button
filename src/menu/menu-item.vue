@@ -1,5 +1,6 @@
 <template>
   <div
+    :data-name="name"
     class="g-menu-item"
     :class="{ selected, 'g-vertical-menu-item': vertical }"
     @click="onClick"
