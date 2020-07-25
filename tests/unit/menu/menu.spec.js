@@ -6,7 +6,7 @@ chai.use(sinonChai);
 import Menu from '@/menu/menu';
 import MenuItem from '@/menu/menu-item';
 import SubMenu from '@/menu/sub-menu';
-import Icon from '@/icon';
+import Icon from '@/g-icon/icon';
 import { mount } from '@vue/test-utils';
 import Vue from 'vue';
 

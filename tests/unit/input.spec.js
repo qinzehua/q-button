@@ -3,7 +3,7 @@ import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import { mount } from '@vue/test-utils';
 chai.use(sinonChai);
-import Input from '@/input';
+import Input from '@/input/input';
 
 describe('Input', () => {
   it('存在.', () => {

@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import Row from '@/row';
-import Col from '@/col';
+import Row from '@/row-col/row';
+import Col from '@/row-col/col';
 import { mount } from '@vue/test-utils';
 
 describe('Row Col', () => {

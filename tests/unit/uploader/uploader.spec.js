@@ -1,12 +1,11 @@
 import chai, { expect } from 'chai';
-import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import Vue from 'vue';
 chai.use(sinonChai);
 
 import Uploader from '@/uploader/uploader';
-import Button from '@/button';
-import Icon from '@/icon';
+import Button from '@/button/button';
+import Icon from '@/g-icon/icon';
 
 import { mount } from '@vue/test-utils';
 import http from '../../../src/http';

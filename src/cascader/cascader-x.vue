@@ -30,9 +30,9 @@
 </template>
 
 <script>
-import Icon from "../icon";
+import Icon from '../g-icon/icon';
 export default {
-  name: "cascaderX",
+  name: 'cascaderX',
   components: {
     Icon
   },
@@ -74,10 +74,10 @@ export default {
       const copySelected = JSON.parse(JSON.stringify(this.selected));
       copySelected[this.index] = item;
       copySelected.splice(this.index + 1);
-      this.$emit("selectedChange", copySelected);
+      this.$emit('selectedChange', copySelected);
     },
     selectedChange(selected) {
-      this.$emit("selectedChange", selected);
+      this.$emit('selectedChange', selected);
     }
   },
   mounted() {}

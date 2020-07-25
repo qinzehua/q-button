@@ -20,7 +20,12 @@
 
 <script>
 import clickOutside, { removeListener } from '../clickoOutside';
+import Icon from '../g-icon/icon';
+
 export default {
+  components: {
+    'g-icon': Icon
+  },
   directives: {
     clickOutside
   },

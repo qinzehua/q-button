@@ -19,8 +19,13 @@
 
 <script>
 import http from '../http';
+import Icon from '../g-icon/icon';
+
 export default {
   name: 'g-uploader',
+  components: {
+    'g-icon': Icon
+  },
   props: {
     name: {
       type: String,

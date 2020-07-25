@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Icon from './icon.vue';
+import Icon from '../g-icon/icon.vue';
 export default {
   props: {
     icon: {
