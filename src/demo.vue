@@ -1,6 +1,18 @@
 <template>
   <div>
     <div class="box">
+      <g-uploader
+        accept="image/*"
+        action="http://localhost:3000/upload"
+        method="post"
+        name="file"
+        :parseResponse="parseResponse"
+        :fileList.sync="fileList"
+      >
+        <g-button icon="upload">上传</g-button>
+      </g-uploader>
+    </div>
+    <div class="box">
       <g-menu :selected.sync="selectedMenu">
         <g-menu-item name="1">123</g-menu-item>
         <g-menu-item name="2">456</g-menu-item>
@@ -206,6 +218,7 @@ export default {
   name: 'demo',
   data() {
     return {
+      fileList: [],
       loading1: false,
       message: '孙',
       selectTab: 'sport',
@@ -241,6 +254,10 @@ export default {
     async loadData({ id }, callback) {
       const r = await ajax(id);
       callback(r);
+    },
+    parseResponse(response) {
+      const res = JSON.parse(response);
+      return `http://localhost:3000/preview/${res.id}`;
     }
   },
   async created() {

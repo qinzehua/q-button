@@ -27,6 +27,7 @@ import SlidesItem from './slides/slides-item';
 import Menu from './menu/menu';
 import MenuItem from './menu//menu-item';
 import SubMenu from './menu/sub-menu';
+import Uploader from './uploader/uploader';
 
 Vue.component('g-icon', Icon);
 Vue.component('g-button-group', ButtonGroup);
@@ -56,6 +57,7 @@ Vue.component('g-slides-item', SlidesItem);
 Vue.component('g-menu', Menu);
 Vue.component('g-menu-item', MenuItem);
 Vue.component('g-sub-menu', SubMenu);
+Vue.component('g-uploader', Uploader);
 
 import Demo from './demo';
 
