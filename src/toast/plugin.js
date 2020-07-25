@@ -1,4 +1,4 @@
-import Toast from "./toast";
+import Toast from './toast';
 let currentToast;
 
 export default {
@@ -26,7 +26,7 @@ function createToast(Vue, { message, toastOptions, onClose }) {
     }
   });
   toast.$slots.default = [message];
-  toast.$on("close", onClose);
+  toast.$on('close', onClose);
   toast.$mount();
   document.body.appendChild(toast.$el);
   return toast;

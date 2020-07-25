@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "gSlider"
+  name: 'gSlider'
 };
 </script>
 

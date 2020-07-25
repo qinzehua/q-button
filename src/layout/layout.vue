@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "gLayout",
+  name: 'gLayout',
   data() {
     return {
       layoutClass: {
@@ -16,7 +16,7 @@ export default {
   },
   mounted() {
     this.$children.forEach(vm => {
-      if (vm.$options.name === "gSlider") {
+      if (vm.$options.name === 'gSlider') {
         console.log(vm.$options.name);
 
         this.layoutClass.hasSlider = true;

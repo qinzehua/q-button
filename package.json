@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name qGulu ./src/index.js",
     "test": "karma start --single-run",
     "test:unit:old": "vue-cli-service test:unit --watch",
     "test:unit": "karma start",
