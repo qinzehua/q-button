@@ -9,10 +9,7 @@
         :parseResponse="parseResponse"
         :fileList.sync="fileList"
       >
-        <g-button>上传</g-button>
-        <template slot="tips">
-          <div>只能上传 300kb以内的 png, jpeg文件</div>
-        </template>
+        <g-button icon="upload">上传</g-button>
       </g-uploader>
     </div>
     <div class="box">
